@@ -181,6 +181,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Sign-Language Recognition & Communication Assistant",
     category: "Computer Vision & Team Hackathon",
     period: "CodeFury 9.0",
+    image: "/api/image/omnicomm.png",
     whatItIs:
       "A computer vision communication assistant that translates sign-language gestures captured by camera into readable text, built during the CodeFury 9.0 hackathon.",
     problemSolved:
