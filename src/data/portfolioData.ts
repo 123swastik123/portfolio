@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   location: "Bengaluru, Karnataka, India",
   coordinates: "12.9716° N, 77.5946° E",
   timezone: "Asia/Kolkata",
-  email: "swastikaradashettar@gmail.com",
+  email: "swastikarabashettar@gmail.com",
   phone: "+91 9108263297",
   github: "https://github.com/123swastik123",
   resumeUrl: "/resume.pdf",
