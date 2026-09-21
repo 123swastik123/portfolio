@@ -61,10 +61,10 @@ export default function Contact() {
           {/* Email button */}
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
-            className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#c8f45e] px-7 py-4 font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-zinc-950 font-bold transition-transform duration-300 hover:-translate-y-0.5 shadow-[0_0_24px_rgba(200,244,94,0.2)]"
+            className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#c8f45e] px-7 py-4 font-mono text-xs sm:text-sm lowercase tracking-normal text-zinc-950 font-bold transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d6f87d] shadow-[0_0_24px_rgba(200,244,94,0.25)] cursor-pointer"
           >
-            <span>{PERSONAL_INFO.email}</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span className="lowercase font-mono select-all">{PERSONAL_INFO.email}</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
           </a>
 
           {/* Copy email button */}

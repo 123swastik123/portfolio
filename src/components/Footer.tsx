@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="border-t border-zinc-800/80 bg-[#08080a]">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10">
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-          © 2026 Swastik S. Arabashettar
+          © 2026 Swastik.S.Karabashettar
         </p>
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
           Built in Bengaluru · Next.js &amp; a lot of curiosity

@@ -47,7 +47,7 @@ export default function Hero() {
             </span>
           </span>
           <span className="block overflow-hidden pb-[0.06em]">
-            <span className="inline-block">ARABASHETTAR</span>
+            <span className="inline-block">KARABASHETTAR</span>
             <span className="inline-block text-[#c8f45e]">.</span>
           </span>
         </motion.h1>

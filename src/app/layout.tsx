@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Swastik S. Arabashettar — AI & Data Science Student, Builder",
+  title: "Swastik.S.Karabashettar — AI & Data Science Student, Builder",
   description:
-    "Personal portfolio of Swastik S. Arabashettar, an AI & Data Science undergraduate at UVCE Bengaluru exploring Generative AI, local LLMs, deterministic systems, and media automation.",
+    "Personal portfolio of Swastik.S.Karabashettar, an AI & Data Science undergraduate at UVCE Bengaluru exploring Generative AI, local LLMs, deterministic systems, and media automation.",
   keywords: [
-    "Swastik S. Arabashettar",
-    "Swastik Arabashettar",
+    "Swastik.S.Karabashettar",
+    "Swastik Karabashettar",
     "Swastik S. Karabashettar",
     "UVCE Bengaluru",
     "Artificial Intelligence",
@@ -28,20 +28,20 @@ export const metadata: Metadata = {
     "AutoClip",
     "Generative AI Portfolio",
   ],
-  authors: [{ name: "Swastik S. Arabashettar", url: "https://github.com/123swastik123" }],
-  creator: "Swastik S. Arabashettar",
+  authors: [{ name: "Swastik.S.Karabashettar", url: "https://github.com/123swastik123" }],
+  creator: "Swastik.S.Karabashettar",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://github.com/123swastik123",
-    title: "Swastik S. Arabashettar — AI & Data Science Student, Builder",
+    title: "Swastik.S.Karabashettar — AI & Data Science Student, Builder",
     description:
       "B.Tech AI & Data Science undergraduate at UVCE Bengaluru exploring generative intelligence, local LLM architectures, and practical automation tools.",
-    siteName: "Swastik S. Arabashettar Portfolio",
+    siteName: "Swastik.S.Karabashettar Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Swastik S. Arabashettar — AI & Data Science Student, Builder",
+    title: "Swastik.S.Karabashettar — AI & Data Science Student, Builder",
     description:
       "B.Tech AI & Data Science undergraduate at UVCE Bengaluru exploring generative systems, local LLMs, and practical systems.",
   },

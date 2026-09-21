@@ -25,7 +25,7 @@ export default function Navbar() {
           href="#top"
           className="font-mono text-xs sm:text-sm font-bold tracking-wider text-white hover:text-[#c8f45e] transition-colors uppercase"
         >
-          SWASTIK<span className="text-[#c8f45e]">.</span>S<span className="text-[#c8f45e]">.</span>ARABASHETTAR<span className="text-[#c8f45e]">.</span>
+          SWASTIK<span className="text-[#c8f45e]">.</span>S<span className="text-[#c8f45e]">.</span>KARABASHETTAR<span className="text-[#c8f45e]">.</span>
         </a>
 
         {/* Center: Desktop Navigation */}

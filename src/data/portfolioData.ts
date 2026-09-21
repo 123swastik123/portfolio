@@ -1,13 +1,13 @@
 import { Project, SkillCategory, EducationInfo } from "@/types";
 
 export const PERSONAL_INFO = {
-  name: "Swastik S. Arabashettar",
+  name: "Swastik.S.Karabashettar",
   shortName: "Swastik",
   role: "B.Tech Student & AI Developer",
   location: "Bengaluru, Karnataka, India",
   coordinates: "12.9716° N, 77.5946° E",
   timezone: "Asia/Kolkata",
-  email: "swastikarabashettar@gmail.com",
+  email: "swastik.s.arabashettar@gmail.com",
   phone: "+91 9108263297",
   github: "https://github.com/123swastik123",
   resumeUrl: "/resume.pdf",
