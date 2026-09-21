@@ -54,6 +54,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Swastik.S.Karabashettar",
+              url: "https://swastik-portfolio-iota.vercel.app",
+              email: "mailto:swastikarabashettar@gmail.com",
+              sameAs: ["https://github.com/123swastik123"],
+              jobTitle: "AI & Data Science Developer",
+              worksFor: {
+                "@type": "CollegeOrUniversity",
+                name: "University Visvesvaraya College of Engineering (UVCE)",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-[#08080a] text-[#f4f4f5] antialiased selection:bg-[#f4f4f5] selection:text-[#08080a] font-sans">
         {children}
       </body>

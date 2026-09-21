@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { ArrowDown, FileText, ArrowUpRight, Terminal } from "lucide-react";
+import { ArrowDown, FileText, ArrowUpRight, Terminal, Mail } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
 
 export default function Hero() {
@@ -85,6 +85,17 @@ export default function Hero() {
             <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
           </a>
 
+          {/* Email / Get in Touch button */}
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="group flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#c8f45e] hover:bg-[#d6f87d] text-zinc-950 font-bold text-xs sm:text-sm font-mono transition-all shadow-[0_0_20px_rgba(200,244,94,0.2)]"
+            title="Email / Get in Touch"
+          >
+            <Mail className="w-4 h-4 text-zinc-950 shrink-0" />
+            <span className="uppercase tracking-wider">Email / Get in Touch</span>
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+
           {/* Actual Resume PDF */}
           <a
             href={PERSONAL_INFO.resumeUrl}
@@ -113,6 +124,24 @@ export default function Hero() {
           >
             <Terminal className="w-3.5 h-3.5 text-[#c8f45e]" />
             <span>Interactive AI Lab</span>
+          </a>
+        </motion.div>
+
+        {/* Direct Email Display */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-4 flex items-center gap-2 font-mono text-xs"
+        >
+          <span className="text-zinc-500 uppercase tracking-widest text-[11px]">Direct Email:</span>
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="lowercase font-mono text-zinc-300 hover:text-[#c8f45e] transition-colors underline decoration-zinc-700 underline-offset-4 flex items-center gap-1.5"
+            title="Compose email to swastikarabashettar@gmail.com"
+          >
+            <Mail className="w-3.5 h-3.5 text-[#c8f45e]" />
+            <span>{PERSONAL_INFO.email}</span>
           </a>
         </motion.div>
       </div>

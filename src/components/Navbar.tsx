@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { ArrowUpRight, Menu, X, FileText } from "lucide-react";
+import { ArrowUpRight, Menu, X, FileText, Mail } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,8 +42,17 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right Actions: Resume & Menu */}
+        {/* Right Actions: Email, Resume & Menu */}
         <div className="flex items-center gap-3">
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="hidden xl:inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-[#0e0e12] px-3.5 py-2 font-mono text-xs lowercase tracking-normal text-zinc-300 transition-all hover:border-[#c8f45e] hover:text-[#c8f45e]"
+            title="Email swastikarabashettar@gmail.com"
+          >
+            <Mail className="h-3.5 w-3.5 text-[#c8f45e]" />
+            <span>{PERSONAL_INFO.email}</span>
+          </a>
+
           <a
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
@@ -90,10 +99,13 @@ export default function Navbar() {
             </a>
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="flex items-center gap-2 py-2 text-[#c8f45e]"
+              className="flex items-center justify-between py-2 text-[#c8f45e] lowercase tracking-normal font-mono"
             >
-              <span>{PERSONAL_INFO.email}</span>
-              <ArrowUpRight className="h-3.5 w-3.5" />
+              <span className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0" />
+                <span className="lowercase font-mono">{PERSONAL_INFO.email}</span>
+              </span>
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
             </a>
           </div>
         </div>

@@ -166,6 +166,25 @@ export default function About() {
                 Second year — learning &amp; building
               </span>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="grid grid-cols-5 gap-4 border-b border-zinc-800 py-4.5"
+            >
+              <span className="col-span-2 font-mono text-[11px] uppercase tracking-[0.15em] text-zinc-500">
+                Email
+              </span>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="col-span-3 text-sm font-mono lowercase text-zinc-300 hover:text-[#c8f45e] transition-colors truncate"
+                title="Compose email to swastikarabashettar@gmail.com"
+              >
+                {PERSONAL_INFO.email}
+              </a>
+            </motion.div>
           </div>
         </div>
       </div>
