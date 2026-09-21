@@ -20,12 +20,12 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 transition-colors duration-500 bg-[#08080a]/80 backdrop-blur-md border-b border-zinc-800/60">
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
-        {/* Left: Monogram Brand */}
+        {/* Left: Brand Monogram / Name */}
         <a
           href="#top"
-          className="font-mono text-base font-bold tracking-tight text-white hover:opacity-90 transition-opacity"
+          className="font-mono text-xs sm:text-sm font-bold tracking-wider text-white hover:text-[#c8f45e] transition-colors uppercase"
         >
-          SSK<span className="text-[#c8f45e]">.</span>
+          SWASTIK<span className="text-[#c8f45e]">.</span>S<span className="text-[#c8f45e]">.</span>ARABASHETTAR<span className="text-[#c8f45e]">.</span>
         </a>
 
         {/* Center: Desktop Navigation */}
@@ -42,24 +42,16 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right Actions: Resume & Let's Talk */}
+        {/* Right Actions: Resume & Menu */}
         <div className="flex items-center gap-3">
           <a
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-[#0e0e12] px-3.5 py-2 font-mono text-xs uppercase tracking-[0.15em] text-zinc-300 transition-all hover:border-[#c8f45e] hover:text-[#c8f45e]"
+            className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-[#0e0e12] px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] text-zinc-300 transition-all hover:border-[#c8f45e] hover:text-[#c8f45e]"
           >
             <FileText className="h-3.5 w-3.5 text-[#c8f45e]" />
             <span>CV (PDF)</span>
-          </a>
-
-          <a
-            href={`mailto:${PERSONAL_INFO.email}`}
-            className="group inline-flex items-center gap-1.5 rounded-full border border-zinc-700 bg-white text-zinc-950 px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300 hover:border-[#c8f45e] hover:bg-[#c8f45e] hover:text-zinc-950 shadow-sm"
-          >
-            <span>Let&apos;s talk</span>
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
 
           {/* Mobile menu button */}
