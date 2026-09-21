@@ -87,8 +87,8 @@ export default function AiLab() {
           </h2>
         </div>
         <p className="text-xs sm:text-sm text-zinc-400 max-w-md font-mono">
-          Interactive simulations demonstrating my architectural thinking across deterministic
-          scaffolding, local model profiling, and video automation.
+          Interactive mini-demos showing how my projects work under the hood: rule-based citizen logic,
+          local AI hardware trade-offs, and automated video cropping.
         </p>
       </div>
 
@@ -103,7 +103,7 @@ export default function AiLab() {
           }`}
         >
           <Cpu className="w-3.5 h-3.5" />
-          <span>01. CivicPath Hybrid Engine</span>
+          <span>01. CivicPath: Rules vs. AI Chat</span>
         </button>
 
         <button
@@ -115,7 +115,7 @@ export default function AiLab() {
           }`}
         >
           <Sliders className="w-3.5 h-3.5" />
-          <span>02. Local LLM Profiler</span>
+          <span>02. Local AI Hardware Calculator</span>
         </button>
 
         <button
@@ -127,7 +127,7 @@ export default function AiLab() {
           }`}
         >
           <Film className="w-3.5 h-3.5" />
-          <span>03. AutoClip Pipeline Visualizer</span>
+          <span>03. AutoClip: Video Framing Scrubber</span>
         </button>
       </div>
 
@@ -139,14 +139,13 @@ export default function AiLab() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-800">
               <div>
                 <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <span>CivicPath: Deterministic Verification vs. Generative Explanation</span>
+                  <span>CivicPath: Accurate Rule Logic vs. AI Explanation</span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
                     Live Demo
                   </span>
                 </h3>
                 <p className="text-xs text-zinc-400 mt-1">
-                  How we eliminate AI hallucinations for legal civic welfare rules by separating rule
-                  evaluation from natural language synthesis.
+                  Why we don&apos;t let AI guess government rules: Eligibility is checked using 100% accurate rule logic from verified data. The AI only explains the application steps in simple Kannada or English.
                 </p>
               </div>
 

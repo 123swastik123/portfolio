@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PERSONAL_INFO, EDUCATION_INFO } from "@/data/portfolioData";
-import { ArrowDown, Terminal, Sparkles, MapPin, GraduationCap } from "lucide-react";
+import { ArrowDown, Terminal, Sparkles, MapPin, GraduationCap, FileText, ArrowUpRight } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
 
 export default function Hero() {
@@ -33,7 +33,7 @@ export default function Hero() {
 
         <div className="flex items-center gap-2 text-zinc-300">
           <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-          <span>Second-Year Student & Builder</span>
+          <span>2nd-Year Undergrad & Builder</span>
         </div>
       </motion.div>
 
@@ -47,21 +47,21 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-300">
             <Sparkles className="w-3 h-3 text-amber-400" />
-            <span>Active Experimentation & Systems Engineering</span>
+            <span>Undergraduate Developer • AI & Data Science</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.06]">
-            Exploring Generative Systems,{" "}
+            Building Practical AI Systems,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-300 to-zinc-500">
-              Local LLMs,
+              Computer Vision,
             </span>{" "}
-            and Pragmatic AI.
+            and Web Tools.
           </h1>
 
           <p className="text-base sm:text-xl text-zinc-400 max-w-2xl leading-relaxed font-normal">
-            I am <strong className="text-zinc-200 font-semibold">{PERSONAL_INFO.name}</strong>, an
-            undergraduate at UVCE Bengaluru. I build software at the intersection of deterministic
-            logic, computer vision, and emerging AI architectures—learning by shipping functional tools.
+            I am <strong className="text-zinc-200 font-semibold">{PERSONAL_INFO.name}</strong>, a
+            second-year AI & Data Science student at UVCE Bengaluru. I learn by building things—from
+            citizen platforms with multi-LLM fallback to automated video editors and ML monitors.
           </p>
         </motion.div>
 
@@ -80,14 +80,26 @@ export default function Hero() {
             <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
           </a>
 
+          {/* Direct Resume Link */}
+          <a
+            href={PERSONAL_INFO.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-800 text-sm font-mono transition-all"
+          >
+            <FileText className="w-4 h-4 text-amber-400" />
+            <span>View Resume (PDF)</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+          </a>
+
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/90 text-zinc-200 hover:text-white hover:bg-zinc-800/90 border border-zinc-800 text-sm font-mono transition-all"
+            className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-zinc-800 text-sm font-mono transition-all"
           >
             <GithubIcon className="w-4 h-4" />
-            <span>github.com/123swastik123</span>
+            <span>GitHub</span>
           </a>
 
           <a

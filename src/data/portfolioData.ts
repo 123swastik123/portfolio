@@ -3,15 +3,17 @@ import { Project, SkillCategory, EducationInfo } from "@/types";
 export const PERSONAL_INFO = {
   name: "Swastik S. Karabashettar",
   shortName: "Swastik",
-  role: "AI & Data Science Student / Builder",
+  role: "B.Tech Student & AI Developer",
   location: "Bengaluru, Karnataka, India",
   coordinates: "12.9716° N, 77.5946° E",
   timezone: "Asia/Kolkata",
   email: "swastikaradashettar@gmail.com",
+  phone: "+91 9108263297",
   github: "https://github.com/123swastik123",
-  bio: "Second-year Artificial Intelligence & Data Science student exploring generative systems, local LLM architectures, and practical automation tools. Passionate about understanding how models think and engineering deterministic systems around them.",
-  status: "Exploring Local LLMs & Agentic Systems",
-  availability: "Open to AI Research & Engineering Internships",
+  resumeUrl: "/resume.pdf",
+  bio: "Second-year B.Tech student in Artificial Intelligence and Data Science at UVCE Bengaluru. I learn by building things—from computer vision tools to citizen platforms and machine learning dashboards. Passionate about exploring emerging models and engineering reliable software around them.",
+  status: "Exploring Local LLMs & Multimodal Systems",
+  availability: "Open to AI & Software Internships / UVCE '29",
 };
 
 export const EDUCATION_INFO: EducationInfo = {
@@ -23,10 +25,10 @@ export const EDUCATION_INFO: EducationInfo = {
   expectedGraduation: "2029",
   status: "2nd Year Undergraduate",
   focusAreas: [
-    "Machine Learning Foundations",
+    "Machine Learning & Data Science",
     "Generative AI & LLM Systems",
-    "Data Structures & C/C++ Systems",
-    "Deterministic & Probabilistic Hybrid Architectures",
+    "Data Structures & Systems Programming",
+    "Full-Stack Web & Backend Architectures",
   ],
 };
 
@@ -35,269 +37,293 @@ export const PROJECTS: Project[] = [
     id: "civicpath",
     number: "01",
     title: "CivicPath / NammaPath",
-    subtitle: "Multilingual AI Platform for Karnataka Civic Services",
-    category: "Generative AI & Civic Tech",
+    subtitle: "Multilingual Government Services Assistant for Karnataka",
+    category: "AI & Civic Web Platform",
     period: "2026",
-    summary:
-      "A multilingual AI-assisted platform designed to help citizens navigate Karnataka government services, decipher complex eligibility criteria, and streamline documentation without administrative friction.",
-    problem:
-      "Civic schemes and governmental welfare benefits in Karnataka often feature rigid, dense bureaucratic rules spread across fragmented portals. Citizens frequently struggle with eligibility self-assessment, language barriers, and required documentation checklists.",
-    solution:
-      "CivicPath unifies service discovery by pairing a deterministic rule engine (ensuring 100% legal eligibility accuracy without AI hallucinations) with a generative LLM layer that translates, simplifies, and explains administrative workflows in conversational Kannada and English.",
-    architecture: [
-      "Deterministic Rule Validation Engine evaluating user parameters (age, income thresholds, domicile criteria) against state policy matrices.",
-      "LLM Synthesis Layer generating plain-language guidance, document checklists, and actionable next steps.",
-      "Bilingual translation pipeline supporting real-time English and Kannada queries.",
-      "PostgreSQL database on Supabase managing verified scheme schemas and session state.",
-    ],
+    image: "/projects/nammapath.png",
+    whatItIs:
+      "A free citizen-guidance website that helps people in Karnataka understand which government services they qualify for, what documents they need, and step-by-step how to apply. Available in English, Kannada, and Hindi across 15+ state and central schemes.",
+    problemSolved:
+      "Finding government scheme requirements in Karnataka is often confusing and spread across disjointed portals. Citizens often struggle with eligibility requirements, language barriers, and figuring out what official paperwork to bring.",
+    whatIBuilt:
+      "Built the full-stack web application using Next.js, TypeScript, and Supabase. Engineered a strict rule engine so eligibility results are calculated from verified data without relying on AI guesses, and added multi-model AI fallback (Groq → Gemini → Claude) to explain results in plain language with downloadable PDF checklists.",
+    whyItsInteresting:
+      "Unlike standard AI chatbots that might hallucinate legal rules, CivicPath separates rule evaluation from text explanation. The rule check runs against verified state criteria first; the AI only explains the steps and generates your checklist. It also features automatic provider failover so the site stays online even if an AI provider goes down.",
     keyFeatures: [
-      "Zero-hallucination deterministic eligibility verification",
-      "Multilingual natural language explanation in Kannada & English",
-      "Context-aware document preparation checklists",
-      "Next.js App Router frontend with real-time state synchronization",
-      "Supabase PostgreSQL schema for municipal & state schemes",
+      "Plain rule-based condition trees over verified database (no AI hallucinations for rules/fees)",
+      "Multi-provider AI fallback: tries Groq first, then Gemini, then Claude",
+      "AI responses validated with Zod schemas before being shown to users",
+      "Multilingual support in English, Kannada, and Hindi",
+      "Automated PDF application checklist generation (pdf-lib)",
+      "Supabase / PostgreSQL database with row-level security and 37 Jest tests",
     ],
     technologies: [
       "Next.js",
       "TypeScript",
-      "Generative AI",
-      "LLM Integration",
       "Supabase",
       "PostgreSQL",
+      "Groq / Gemini / Claude APIs",
       "Tailwind CSS",
+      "Jest",
     ],
     githubUrl: "https://github.com/123swastik123/Government-work-assistant-ai",
-    badgeText: "Civic Intelligence",
+    liveUrl: "https://government-work-assistant-ai-two.vercel.app/",
+    badgeText: "Live Web App",
     architectureDiagram: {
       nodes: [
-        { label: "Citizen Input", role: "Demographic & Scheme Query", type: "input" },
-        { label: "Deterministic Engine", role: "Hard Rule & Threshold Audit", type: "process" },
-        { label: "LLM Synthesizer", role: "Kannada/English Explanation", type: "ai" },
-        { label: "Step-by-Step Roadmaps", role: "Required Docs & Office Checklist", type: "output" },
+        { label: "Citizen Input", role: "Age, income, residency details", type: "input" },
+        { label: "Rule Engine", role: "Checked against verified policy data", type: "process" },
+        { label: "AI Explainer", role: "Plain Kannada, Hindi & English", type: "ai" },
+        { label: "PDF Checklist", role: "Required documents & next steps", type: "output" },
       ],
-      flowDescription: "Citizen Query → Rule Matrix Engine (No Hallucination) → Generative Synthesis → Kannada/English Actionable Plan",
+      flowDescription:
+        "User Input → Verified Database Rule Check (100% Accurate) → AI Language Explanation → Downloadable PDF Roadmap",
     },
   },
   {
     id: "autoclip",
     number: "02",
     title: "AutoClip",
-    subtitle: "Automated AI Short-Form Video Reframing & Captioning Engine",
+    subtitle: "Automated AI Short-Form Video Generator",
     category: "Computer Vision & Audio ML",
     period: "2026",
-    summary:
-      "An automated pipeline turning long-form horizontal video into high-engagement vertical Shorts using face-following dynamic crops, Whisper AI transcription, and word-by-word animated karaoke captions.",
-    problem:
-      "Manually editing horizontal podcasts and interviews into vertical 9:16 video for YouTube Shorts and Reels takes hours of tedious keyframing, manual speaker tracking, speech transcribing, and subtitle timing.",
-    solution:
-      "AutoClip automates the entire transformation pipeline: detecting speaker faces, calculating camera crop pans with motion smoothing, transcribing audio with Whisper, generating timestamped word-level karaoke subtitles, and performing automated loudness and quality checks.",
-    architecture: [
-      "Audio Extraction & Whisper AI transcription generating word-level timestamps.",
-      "Facial detection and bounding box computation with Kalman filter-based smoothing for fluid camera pans.",
-      "Dynamic 16:9 to 9:16 crop calculation centered on the active speaker.",
-      "FFmpeg compositing engine overlaying animated karaoke subtitles with audio loudness normalization.",
-    ],
+    image: "/projects/autoclip.png",
+    whatItIs:
+      "An automated video processing pipeline that takes long horizontal videos (interviews, podcasts, talks) and automatically converts them into vertical (9:16) YouTube Shorts and Reels.",
+    problemSolved:
+      "Manually editing horizontal video into vertical clips is slow and repetitive: you have to manually crop, track speakers as they move, transcribe audio, time subtitles, and add background music.",
+    whatIBuilt:
+      "Developed the end-to-end Python automation pipeline using OpenCV, FFmpeg, and Faster-Whisper. Implemented face detection to keep the speaker centered with smooth camera panning, word-by-word animated karaoke subtitles, audio ducking, and automated quality checks.",
+    whyItsInteresting:
+      "It eliminates hours of manual video editing. It uses OpenCV to track the speaker's face with motion smoothing so the camera doesn't jitter, adds dynamic karaoke subtitles synchronized down to the word, and runs automated checks on frame rate, audio loudness, and pacing before finalizing the video.",
     keyFeatures: [
-      "Intelligent face-following dynamic 9:16 reframing",
-      "AI transcription with sub-second timestamp alignment",
-      "Word-by-word animated karaoke subtitle burning",
-      "Audio processing with automated loudness normalization (LUFS)",
-      "Automated quality checks for jitter and speaker transition",
+      "Face tracking with OpenCV that pans the 9:16 crop smoothly to follow speakers",
+      "Automatic zoom-in on high-energy conversational moments",
+      "Word-by-word animated karaoke captions using Faster-Whisper",
+      "Background music that automatically quiets down (ducks) under speech",
+      "Automated two-gate QA: technical checks (1080x1920, 30 FPS, loudness) and creative checks (speaker visibility, pacing)",
+      "37 Pytest automated tests ensuring pipeline stability",
     ],
     technologies: [
       "Python",
-      "Whisper AI",
-      "Computer Vision",
+      "OpenCV",
+      "Faster-Whisper",
       "FFmpeg",
       "Audio Processing",
-      "Automation",
+      "Pytest",
     ],
     githubUrl: "https://github.com/123swastik123/Autoclip",
-    badgeText: "Media Automation",
+    badgeText: "Video Automation",
     architectureDiagram: {
       nodes: [
-        { label: "Raw Video (16:9)", role: "Horizontal footage source", type: "input" },
-        { label: "Face Tracking Engine", role: "Speaker center detection", type: "process" },
-        { label: "Whisper Transcription", role: "Word-level timestamp tokens", type: "ai" },
-        { label: "Vertical Short (9:16)", role: "Karaoke captions + smooth crop", type: "output" },
+        { label: "Long 16:9 Video", role: "Source horizontal footage", type: "input" },
+        { label: "OpenCV Face Tracker", role: "Keeps speaker centered without jitter", type: "process" },
+        { label: "Faster-Whisper AI", role: "Word-level timestamped captions", type: "ai" },
+        { label: "Vertical 9:16 Short", role: "Karaoke captions + audio ducking", type: "output" },
       ],
-      flowDescription: "Source Video → Audio Extraction + Face Detection → Dynamic Crop + Subtitle Sync → Rendered 9:16 Video",
+      flowDescription:
+        "Horizontal Video → Face Tracking + Faster-Whisper Transcription → Dynamic Crop + Audio Ducking → 9:16 Rendered Short",
     },
   },
   {
     id: "smart-hydroponics",
     number: "03",
-    title: "Smart Hydroponic Health System",
-    subtitle: "AI/ML & IoT Real-Time Plant Health Prediction Prototype",
-    category: "IoT & Predictive ML",
+    title: "HydroMonitor AI",
+    subtitle: "Smart Hydroponic Plant Health Monitoring System",
+    category: "IoT Telemetry & Machine Learning",
     period: "2025",
-    summary:
-      "An integrated IoT and machine learning prototype that continuously monitors hydroponic environmental parameters, detects abnormal nutrient conditions, and predicts plant health vitality.",
-    problem:
-      "Hydroponic plants lack soil buffer capacity; slight imbalances in pH, electrical conductivity (EC), ambient temperature, or water levels can cause root decay and crop failure within hours if left unnoticed.",
-    solution:
-      "Built a complete edge-to-dashboard prototype that reads environmental sensor telemetry, runs a trained predictive ML model to flag early physiological stress, and triggers automated corrective nutrient recommendations.",
-    architecture: [
-      "Telemetry ingestion pipeline collecting pH, EC, temperature, and humidity metrics.",
-      "Machine learning classification model trained to predict plant health states (Optimal, Nutrient Stress, Root Vulnerability).",
-      "FastAPI backend serving real-time sensor streams and inference endpoints.",
-      "Interactive React dashboard for live metrics tracking and alerts.",
-      "SQLite local datastore for edge logging and offline resilience.",
-    ],
+    image: "/projects/hydromonitor.png",
+    whatItIs:
+      "A smart monitoring platform for soil-free hydroponic farms that analyzes environmental sensor data in real-time, rates plant condition as Healthy, Warning, or Critical, and gives actionable recommendations.",
+    problemSolved:
+      "Hydroponic crops grow in water without soil. If water temperature, pH, or nutrient levels drift even slightly, plants can suffer severe stress or root damage before visible discoloration appears on leaves.",
+    whatIBuilt:
+      "Built the complete software side as part of a 7-person team: engineered a synthetic dataset of 10,500 sensor readings across 5 crops (lettuce, tomato, spinach, basil, strawberry), trained two ML models, built a FastAPI backend, and designed an interactive React dashboard.",
+    whyItsInteresting:
+      "Instead of just showing raw sensor numbers, it uses machine learning to score crop vitality from 0 to 100 based on healthy ranges for each specific plant type. It also provides corrective guidance and alerts in English, Hindi, and Kannada.",
     keyFeatures: [
-      "Continuous multi-parameter environmental telemetry ingestion",
-      "Trained ML classifier for early plant stress detection",
-      "Abnormal-condition alerting before visible leaf necrosis",
-      "FastAPI inference microservice with SQLite persistence",
-      "Clean, responsive analytics dashboard",
+      "Trained on 10,500 readings across lettuce, tomato, spinach, basil, and strawberry",
+      "Dual ML architecture: one classifier for plant status + one regressor for 0–100 health score",
+      "FastAPI backend microservice with SQLite database",
+      "Live interactive React dashboard with simulated sensor telemetry and charts",
+      "Actionable recommendations and alerts in English, Hindi, and Kannada",
     ],
     technologies: [
       "Python",
-      "Machine Learning",
+      "Scikit-learn",
       "FastAPI",
       "React",
       "SQLite",
-      "IoT Telemetry",
+      "Tailwind CSS",
+      "Recharts",
     ],
     githubUrl: "https://github.com/123swastik123/Hypotonic-farming-system",
-    badgeText: "IoT & Applied ML",
+    liveUrl: "https://hypotonic-farming-system.vercel.app/",
+    teamAttribution:
+      "Team project of 7. I designed and built the complete software stack: ML models, FastAPI backend, and React dashboard.",
+    badgeText: "Live Dashboard",
     architectureDiagram: {
       nodes: [
-        { label: "Sensors (pH / EC / Temp)", role: "Edge telemetry stream", type: "input" },
-        { label: "FastAPI Pipeline", role: "Data validation & ingestion", type: "process" },
-        { label: "ML Health Predictor", role: "Anomaly & vitality classifier", type: "ai" },
-        { label: "Telemetry Dashboard", role: "Live telemetry & alerts", type: "output" },
+        { label: "Sensor Readings", role: "pH, EC, water temp, humidity", type: "input" },
+        { label: "FastAPI Backend", role: "Data validation & SQLite logging", type: "process" },
+        { label: "Scikit-learn Models", role: "Vitality classifier & score regressor", type: "ai" },
+        { label: "Live Dashboard", role: "Real-time charts & alerts in 3 languages", type: "output" },
       ],
-      flowDescription: "Sensor Stream → Ingestion Microservice → ML Inference Engine → Live Diagnostics Dashboard",
+      flowDescription:
+        "Sensor Readings → FastAPI Ingestion → Machine Learning Models (Score 0-100) → Live Multilingual Dashboard",
     },
   },
   {
     id: "omnicomm",
     number: "04",
     title: "OmniComm",
-    subtitle: "Sign-Language Recognition & Multimodal Integration System",
+    subtitle: "Sign-Language Recognition & Communication Assistant",
     category: "Computer Vision & Team Hackathon",
     period: "CodeFury 9.0",
-    summary:
-      "A collaborative accessibility project built during the CodeFury 9.0 Hackathon, integrating computer vision-based sign language recognition with communication endpoints.",
-    problem:
-      "Bridging the communication divide between the Deaf/Hard-of-Hearing community and hearing individuals requires low-latency, accessible sign-language translation tools that interface cleanly with everyday messaging.",
-    solution:
-      "Our team designed OmniComm to capture gesture streams, classify sign language postures, and translate them into text/speech. My personal contribution focused on the system integration layer—connecting the vision inference output to the downstream application services.",
-    architecture: [
-      "Gesture capture and computer vision pipeline for hand landmark extraction.",
-      "Classification pipeline translating hand coordinate sequences into alphanumeric tokens.",
-      "System integration and orchestration layer connecting vision outputs to application state.",
-    ],
+    whatItIs:
+      "A computer vision communication assistant that translates sign-language gestures captured by camera into readable text, built during the CodeFury 9.0 hackathon.",
+    problemSolved:
+      "Sign-language users often encounter friction when communicating with non-signers who cannot understand hand gestures in daily conversations.",
+    whatIBuilt:
+      "Worked as part of team 'Byte Hogs' (team of 4). I did most of the core development and system integration work, connecting the sign-language recognition vision model with the application frontend so gestures are captured and translated in real-time.",
+    whyItsInteresting:
+      "Engineered under rapid 24-hour hackathon deadlines, bridging computer vision landmark inference with application state to provide smooth, real-time gesture feedback.",
+    teamAttribution:
+      "Team project of 4 (Byte Hogs) for CodeFury 9.0. We integrated an existing sign-language model into the app, and I did most of the development and system integration work.",
     keyFeatures: [
-      "Real-time hand gesture tracking and feature extraction",
-      "Multimodal system integration across vision model and web frontend",
-      "Built under rapid hackathon constraints at CodeFury 9.0",
+      "Real-time hand gesture tracking and landmark extraction",
+      "Translates hand signs into live text output",
+      "Developed under 24-hour hackathon constraints at CodeFury 9.0",
+      "Focus on end-to-end model integration and state synchronization",
     ],
     technologies: [
-      "Computer Vision",
       "Python",
+      "Computer Vision",
       "System Integration",
       "Team Hackathon",
     ],
     githubUrl: "https://github.com/123swastik123",
-    teamAttribution:
-      "Team Project for CodeFury 9.0. Built collaboratively with peers; my role focused on system integration and bridging components.",
     badgeText: "Hackathon Integration",
     architectureDiagram: {
       nodes: [
-        { label: "Camera Stream", role: "Live hand gesture feed", type: "input" },
-        { label: "Vision Pipeline", role: "Landmark coordinate extraction", type: "ai" },
-        { label: "Integration Layer", role: "System glue & payload router", type: "process" },
-        { label: "Text/Audio Output", role: "Decoded communication UI", type: "output" },
+        { label: "Camera Feed", role: "Captures hand gesture movements", type: "input" },
+        { label: "Vision Model", role: "Identifies sign language landmarks", type: "ai" },
+        { label: "Integration Layer", role: "Translates coordinates to tokens (My Work)", type: "process" },
+        { label: "Text Display", role: "Displays readable conversation", type: "output" },
       ],
-      flowDescription: "Video Stream → Gesture Recognition → Integration Layer (My Focus) → Application Output",
+      flowDescription:
+        "Webcam Feed → Gesture Recognition Model → Integration Layer (My Work) → Live Text Display",
     },
   },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Languages & Core Systems",
-    subtitle: "Foundational languages for systems programming, data pipelines, and algorithms",
+    title: "Programming Languages",
+    subtitle: "Languages I write code in regularly for projects and academic coursework",
     items: [
       {
         name: "Python",
-        context: "Daily driver for ML experimentation, data processing, backend services, and AI scripts.",
+        context: "Daily language for ML models, OpenCV automation, Faster-Whisper, and FastAPI backends.",
         tag: "Daily Driver",
       },
       {
-        name: "C & C++",
-        context: "Academic systems foundation at UVCE; understanding memory layout, data structures, and compute efficiency.",
-        tag: "Core Foundation",
+        name: "TypeScript & JavaScript",
+        context: "Used in Next.js and React web apps (CivicPath, HydroMonitor), UI state, and Zod validation.",
+        tag: "Web Apps",
       },
       {
-        name: "Basic JavaScript & HTML",
-        context: "Web fundamentals applied in UI components, event handling, and DOM structures.",
-        tag: "Web Basics",
+        name: "C & C++",
+        context: "Core academic foundation at UVCE; data structures, memory layout, and systems programming.",
+        tag: "Core Academic",
+      },
+      {
+        name: "SQL",
+        context: "Writing queries, table schemas, and relational filters in PostgreSQL and SQLite.",
+        tag: "Database",
       },
     ],
   },
   {
-    title: "AI & Machine Intelligence",
-    subtitle: "Active experimentation with generative pipelines, local models, and applied ML",
+    title: "AI, ML & Computer Vision",
+    subtitle: "Libraries, models, and tools I have used to build working applications",
     items: [
       {
-        name: "Generative AI & LLMs",
-        context: "Prompt engineering, structured JSON outputs, function calling, and multi-step reasoning workflows.",
-        tag: "Primary Focus",
+        name: "Machine Learning (Scikit-learn)",
+        context: "Trained classifiers and regressors on 10,500 sensor readings in the HydroMonitor project.",
+        tag: "Applied ML",
+      },
+      {
+        name: "Computer Vision (OpenCV)",
+        context: "Face detection, motion tracking, and bounding-box reframing in AutoClip.",
+        tag: "Vision",
+      },
+      {
+        name: "Speech & Audio (Faster-Whisper)",
+        context: "Sub-second word-by-word timestamp extraction and karaoke subtitle generation.",
+        tag: "Audio AI",
+      },
+      {
+        name: "LLM APIs & Multi-Provider Fallback",
+        context: "Building reliable pipelines with Groq, Gemini, and Claude APIs with Zod schema checks.",
+        tag: "LLM Systems",
       },
       {
         name: "Local LLM Experimentation",
-        context: "Testing local inference (Ollama, llama.cpp, quantized GGUF models), latency profiling, and hardware bounds.",
-        tag: "Active Lab",
-      },
-      {
-        name: "LLM System Integration",
-        context: "Pairing deterministic business logic with probabilistic models to prevent hallucinations (e.g., CivicPath).",
-        tag: "Applied",
-      },
-      {
-        name: "Machine Learning",
-        context: "Feature engineering, classical classifiers, Scikit-Learn pipelines, and anomaly detection models.",
-        tag: "Applied ML",
+        context: "Running and benchmarking quantized models locally (Ollama, GGUF) to test memory and latency.",
+        tag: "Hands-on Lab",
       },
     ],
   },
   {
-    title: "Web, Data & Backends",
-    subtitle: "Modern stacks for shipping functional prototypes and full-stack utilities",
+    title: "Web & Backend Frameworks",
+    subtitle: "Full-stack tools used to build live prototypes and APIs",
     items: [
       {
-        name: "Next.js & TypeScript",
-        context: "Modern web frontend with App Router, server-rendered components, and type safety.",
+        name: "Next.js & React",
+        context: "Building responsive frontends with App Router, Tailwind CSS, and server components.",
         tag: "Frontend",
       },
       {
-        name: "Supabase & PostgreSQL",
-        context: "Relational database modeling, row schemas, and real-time backend services.",
-        tag: "Database",
+        name: "FastAPI",
+        context: "Serving real-time Python endpoints and ML predictions with high speed and lightweight setup.",
+        tag: "Backend",
       },
       {
-        name: "FastAPI & SQLite",
-        context: "Lightweight, high-performance Python microservices for serving ML inference and IoT logs.",
-        tag: "Backend",
+        name: "Tailwind CSS",
+        context: "Clean, responsive, mobile-friendly design systems and layouts.",
+        tag: "Styling",
       },
     ],
   },
   {
-    title: "Developer Workflow & Deployment",
-    subtitle: "Tools and infrastructure for continuous iteration and version control",
+    title: "Databases, Testing & Tools",
+    subtitle: "Data persistence, test suites, and developer workflows",
     items: [
       {
-        name: "Git & GitHub",
-        context: "Branching workflows, version control, public repositories, and collaborative tracking.",
-        tag: "Essential",
+        name: "Supabase & PostgreSQL",
+        context: "Cloud database with Row-Level Security (RLS) used in CivicPath.",
+        tag: "Database",
       },
       {
-        name: "Vercel & Render",
-        context: "Continuous deployment for Next.js web applications, API services, and automated build pipelines.",
-        tag: "Deployment",
+        name: "SQLite & SQLAlchemy",
+        context: "Lightweight local datastores for edge logging and prototype backends.",
+        tag: "Database",
+      },
+      {
+        name: "Git & GitHub",
+        context: "Branching workflows, version control, and public project management.",
+        tag: "Workflow",
+      },
+      {
+        name: "FFmpeg",
+        context: "Automated video compositing, audio ducking, loudness normalization, and subtitle burning.",
+        tag: "Media Engine",
+      },
+      {
+        name: "Jest & Pytest",
+        context: "Writing automated test suites: 37 Jest tests in CivicPath and 37 Pytest tests in AutoClip.",
+        tag: "Testing",
       },
     ],
   },
@@ -305,22 +331,22 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const AI_PHILOSOPHY = {
   quote:
-    "AI is shifting every single week. Instead of memorizing static frameworks, I focus on understanding the underlying model dynamics—experimenting with local LLMs, studying token streams, and building deterministic scaffolding that keeps generative systems reliable.",
+    "I learn by building things. Rather than treating AI like a magic black box, I focus on understanding how models actually work—experimenting with local models, testing prompt resilience, and wrapping probabilistic models in reliable rule checks.",
   pillars: [
     {
-      title: "Pragmatic Over Hype",
+      title: "Reliability Over Hype",
       description:
-        "Rather than building shallow wrappers around standard prompts, I focus on hybrid architectures where deterministic rules handle critical business logic and AI provides adaptive human synthesis.",
+        "In projects like CivicPath, we don't let AI guess legal rules. Plain condition logic handles the eligibility math, and AI explains the result in simple language.",
     },
     {
-      title: "Local-First Curiosity",
+      title: "Local & Hands-On",
       description:
-        "I actively run and benchmark open-weights models locally to understand context window boundaries, quantization tradeoffs (Q4 vs Q8), memory bandwidth, and edge inference constraints.",
+        "I actively run and test open-weights models locally to understand real-world constraints—quantization loss, memory limits, and inference speeds.",
     },
     {
-      title: "Constant Student Mindset",
+      title: "Constantly Learning",
       description:
-        "As a 2nd-year undergraduate at UVCE, I treat every project as an experimental laboratory—shipping code, dissecting failure points, and iterating alongside the rapid pace of AI research.",
+        "As a 2nd-year student at UVCE, I enjoy breaking down new tools, building functional prototypes with friends, and sharing what I learn.",
     },
   ],
 };

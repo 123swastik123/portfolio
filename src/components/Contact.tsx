@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { Mail, Check, Copy, ArrowUpRight, MapPin, Sparkles } from "lucide-react";
+import { Mail, Check, Copy, ArrowUpRight, MapPin, Sparkles, FileText } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
 import confetti from "canvas-confetti";
 
@@ -81,6 +81,17 @@ export default function Contact() {
             >
               <span>Send Direct Email</span>
               <ArrowUpRight className="w-4 h-4" />
+            </a>
+
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-800 font-mono text-sm transition-colors"
+            >
+              <FileText className="w-4 h-4 text-amber-400" />
+              <span>Resume (PDF)</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
             </a>
 
             <a

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { Mail, Check, Copy, Clock, Menu, X, ArrowUpRight } from "lucide-react";
+import { Mail, Check, Copy, Clock, Menu, X, ArrowUpRight, FileText } from "lucide-react";
 
 export default function Navbar() {
   const [copied, setCopied] = useState(false);
@@ -83,6 +83,18 @@ export default function Navbar() {
             <span>BLR {time || "--:--:--"}</span>
           </div>
 
+          {/* Resume PDF Link */}
+          <a
+            href={PERSONAL_INFO.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-zinc-300 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 transition-all"
+            title="View Resume (PDF)"
+          >
+            <FileText className="w-3.5 h-3.5 text-amber-400" />
+            <span>Resume</span>
+          </a>
+
           {/* Copy Email Button */}
           <button
             onClick={copyEmail}
@@ -134,6 +146,17 @@ export default function Navbar() {
             ))}
           </div>
           <div className="pt-3 border-t border-zinc-800/80 flex flex-col gap-2">
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-mono tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-200 font-semibold hover:bg-zinc-800 transition-all"
+            >
+              <FileText className="w-4 h-4 text-amber-400" />
+              <span>View Resume (PDF)</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+            </a>
+
             <button
               onClick={copyEmail}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-mono tracking-wider bg-zinc-100 text-zinc-950 font-semibold hover:bg-white transition-all"

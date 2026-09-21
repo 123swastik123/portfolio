@@ -5,10 +5,11 @@ export interface Project {
   subtitle: string;
   category: string;
   period: string;
-  summary: string;
-  problem: string;
-  solution: string;
-  architecture: string[];
+  image?: string;
+  whatItIs: string;
+  problemSolved: string;
+  whatIBuilt: string;
+  whyItsInteresting: string;
   keyFeatures: string[];
   technologies: string[];
   githubUrl: string;
