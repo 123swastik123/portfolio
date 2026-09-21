@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Multilingual Government Services Assistant for Karnataka",
     category: "AI & Civic Web Platform",
     period: "2026",
-    image: "/projects/nammapath.png",
+    image: "/api/image/nammapath.png",
     whatItIs:
       "A free citizen-guidance website that helps people in Karnataka understand which government services they qualify for, what documents they need, and step-by-step how to apply. Available in English, Kannada, and Hindi across 15+ state and central schemes.",
     problemSolved:
@@ -87,7 +87,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Automated AI Short-Form Video Generator",
     category: "Computer Vision & Audio ML",
     period: "2026",
-    image: "/projects/autoclip.png",
+    image: "/api/image/autoclip.png",
     whatItIs:
       "An automated video processing pipeline that takes long horizontal videos (interviews, podcasts, talks) and automatically converts them into vertical (9:16) YouTube Shorts and Reels.",
     problemSolved:
@@ -132,7 +132,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Smart Hydroponic Plant Health Monitoring System",
     category: "IoT Telemetry & Machine Learning",
     period: "2025",
-    image: "/projects/hydromonitor.png",
+    image: "/api/image/hydromonitor.png",
     whatItIs:
       "A smart monitoring platform for soil-free hydroponic farms that analyzes environmental sensor data in real-time, rates plant condition as Healthy, Warning, or Critical, and gives actionable recommendations.",
     problemSolved:

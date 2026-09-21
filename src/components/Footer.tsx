@@ -1,7 +1,6 @@
 "use client";
 
-import { PERSONAL_INFO } from "@/data/portfolioData";
-import { ArrowUp, Terminal, Heart } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -9,32 +8,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="py-12 px-4 sm:px-8 max-w-6xl mx-auto border-t border-zinc-800/80 text-xs font-mono text-zinc-400">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-        {/* Left: Attribution */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
-          <span className="text-zinc-300 font-semibold">{PERSONAL_INFO.name}</span>
-          <span className="hidden sm:inline text-zinc-700">/</span>
-          <span>B.Tech AI & Data Science • UVCE Bengaluru</span>
-        </div>
-
-        {/* Center: Coordinates */}
-        <div className="text-center text-zinc-400">
-          <span>{PERSONAL_INFO.coordinates}</span>
-        </div>
-
-        {/* Right: Back to Top */}
+    <footer className="border-t border-zinc-800/80 bg-[#08080a]">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+          © 2026 Swastik S. Karabashettar
+        </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+          Built in Bengaluru · Next.js &amp; a lot of curiosity
+        </p>
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 transition-colors"
+          className="group inline-flex w-fit items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-white"
         >
-          <span>Top</span>
-          <ArrowUp className="w-3.5 h-3.5" />
+          <span>Back to top</span>
+          <ArrowUp className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" />
         </button>
-      </div>
-
-      <div className="mt-8 text-center text-zinc-400 text-[11px]">
-        Built with Next.js, TypeScript & Tailwind CSS • No generic templates • Inspired by Dribbble editorial minimalism
       </div>
     </footer>
   );

@@ -1,256 +1,234 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { PROJECTS } from "@/data/portfolioData";
+import { PROJECT_SCREENSHOTS } from "@/data/projectScreenshots";
 import { Project } from "@/types";
 import ProjectModal from "./ProjectModal";
-import { ArrowUpRight, Layers, ExternalLink, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowUpRight, ExternalLink, AlertCircle, Layers } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="work" className="py-24 px-4 sm:px-8 max-w-6xl mx-auto border-t border-zinc-800/80">
-      {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400 mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            <span>Featured Work & Working Software</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
-            Selected Projects
-          </h2>
-        </div>
-        <p className="text-xs sm:text-sm text-zinc-400 max-w-md font-mono">
-          Real tools I built across citizen guidance, video automation, IoT plant telemetry, and
-          computer vision. Click any project to view live links and architecture details.
-        </p>
-      </div>
-
-      {/* Projects List */}
-      <div className="space-y-12">
-        {PROJECTS.map((project) => (
-          <article
-            key={project.id}
-            className="group relative rounded-3xl bg-[#0c0c10] border border-zinc-800/90 hover:border-zinc-700 p-6 sm:p-8 lg:p-10 transition-all duration-300 overflow-hidden"
+    <section id="work" className="border-t border-zinc-800/80 bg-[#08080a]">
+      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+        {/* Section Header */}
+        <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Header / Number & Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-zinc-800/70 font-mono text-xs">
-              <div className="flex items-center gap-3">
-                <span className="text-amber-400 font-bold tracking-wider">
-                  [ {project.number} ]
-                </span>
-                <span className="text-zinc-500">•</span>
-                <span className="text-zinc-300 uppercase tracking-wide">{project.category}</span>
-                <span className="text-zinc-500">•</span>
-                <span className="text-zinc-400">{project.period}</span>
-              </div>
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400">
+              02 <span className="text-[#c8f45e]">—</span> Selected projects
+            </span>
+          </motion.div>
 
-              {project.badgeText && (
-                <span className="px-3 py-0.5 rounded-full text-[11px] bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>{project.badgeText}</span>
-                </span>
-              )}
-            </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h2 className="max-w-xl text-4xl font-medium leading-[1.08] tracking-tight text-white md:text-5xl">
+              Things I&apos;ve built —{" "}
+              <em className="font-serif italic text-[#c8f45e]">or am building.</em>
+            </h2>
+          </motion.div>
+        </div>
 
-            {/* Main Content Grid: Text Breakdown (Left) + Real Screenshot (Right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6 items-start">
-              {/* Left Column: Clear 4-Part Explanation */}
-              <div className="lg:col-span-7 space-y-5">
-                <div>
-                  <h3
-                    onClick={() => setSelectedProject(project)}
-                    className="text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-amber-300 transition-colors cursor-pointer"
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm font-mono text-zinc-400 mt-1">
-                    {project.subtitle}
-                  </p>
-                </div>
+        {/* Project List */}
+        <div className="border-t border-zinc-800/80">
+          {PROJECTS.map((project, idx) => {
+            const screenshotUrl =
+              PROJECT_SCREENSHOTS[project.id] || project.image;
 
-                {/* Team attribution notice if applicable */}
-                {project.teamAttribution && (
-                  <div className="flex items-start gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300/90 font-mono">
-                    <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-400" />
-                    <span>{project.teamAttribution}</span>
-                  </div>
-                )}
-
-                {/* Plain-English Clarity Points */}
-                <div className="space-y-3.5 text-xs sm:text-sm leading-relaxed">
-                  <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60 space-y-1">
-                    <span className="text-[11px] font-mono uppercase text-amber-400 font-semibold block">
-                      What it does:
+            return (
+              <motion.article
+                key={project.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="group relative border-b border-zinc-800/80 transition-colors duration-300 hover:bg-[#0d0d12]"
+              >
+                <div className="grid gap-6 py-10 md:grid-cols-12 md:items-center md:gap-8 md:py-14">
+                  {/* Project Index Number */}
+                  <div className="md:col-span-1">
+                    <span className="font-mono text-sm text-zinc-500 group-hover:text-[#c8f45e] transition-colors">
+                      {project.number}
                     </span>
-                    <p className="text-zinc-300">{project.whatItIs}</p>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60 space-y-1">
-                    <span className="text-[11px] font-mono uppercase text-zinc-400 font-semibold block">
-                      Problem it solves:
-                    </span>
-                    <p className="text-zinc-400">{project.problemSolved}</p>
+                  {/* Title & Category */}
+                  <div className="md:col-span-4">
+                    <div className="flex items-center gap-3">
+                      <h3
+                        onClick={() => setSelectedProject(project)}
+                        className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white hover:text-[#c8f45e] transition-colors cursor-pointer"
+                      >
+                        {project.title}
+                      </h3>
+                    </div>
+                    <p className="mt-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+                      {project.category}
+                      {project.badgeText && (
+                        <span className="ml-2 text-zinc-500 font-normal">
+                          · {project.badgeText}
+                        </span>
+                      )}
+                    </p>
+
+                    {/* Team attribution notice if applicable */}
+                    {project.teamAttribution && (
+                      <div className="mt-3 flex items-start gap-1.5 p-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-300/90 font-mono">
+                        <AlertCircle className="w-3 h-3 shrink-0 mt-0.5 text-amber-400" />
+                        <span>{project.teamAttribution}</span>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60 space-y-1">
-                    <span className="text-[11px] font-mono uppercase text-zinc-400 font-semibold block">
-                      What I contributed:
-                    </span>
-                    <p className="text-zinc-400">{project.whatIBuilt}</p>
+                  {/* Description & Tech Tags */}
+                  <div className="md:col-span-4">
+                    <p className="text-sm leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                      {project.whatItIs}
+                    </p>
+
+                    {/* Tech Badges */}
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.technologies.slice(0, 5).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-zinc-800/80 bg-zinc-900/60 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-zinc-400 group-hover:border-zinc-700 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Action Links */}
+                    <div className="mt-5 flex flex-wrap items-center gap-3">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-full bg-white text-zinc-950 px-3.5 py-1.5 font-mono text-xs font-semibold tracking-wider hover:bg-zinc-200 transition-colors shadow-sm"
+                        >
+                          <span>Visit Live</span>
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      )}
+
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/80 px-3.5 py-1.5 font-mono text-xs text-zinc-300 hover:text-white hover:border-zinc-600 transition-colors"
+                      >
+                        <GithubIcon className="h-3 w-3" />
+                        <span>GitHub</span>
+                      </a>
+
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex items-center gap-1 font-mono text-xs text-zinc-400 hover:text-[#c8f45e] transition-colors ml-1"
+                      >
+                        <Layers className="h-3 w-3" />
+                        <span>Deep Dive</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Screenshot Preview */}
+                  <div className="md:col-span-3">
+                    {screenshotUrl ? (
+                      <div
+                        onClick={() => setSelectedProject(project)}
+                        className="group/thumb relative aspect-[16/10] overflow-hidden rounded-xl border border-zinc-800/90 bg-zinc-950 cursor-pointer shadow-lg hover:border-[#c8f45e]/50 transition-all"
+                      >
+                        {/* Browser chrome header bar */}
+                        <div className="flex items-center justify-between px-2.5 py-1.5 bg-zinc-900/90 border-b border-zinc-800/80 text-[10px] font-mono text-zinc-500">
+                          <div className="flex items-center gap-1">
+                            <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                            <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                            <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                          </div>
+                          <span className="truncate max-w-[130px] text-zinc-400">
+                            {project.liveUrl
+                              ? project.liveUrl.replace("https://", "")
+                              : "github.com"}
+                          </span>
+                        </div>
+
+                        {/* Guaranteed Image Display via Embedded Data URI */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={screenshotUrl}
+                          alt={`${project.title} interface preview`}
+                          className="h-full w-full object-cover object-top group-hover/thumb:scale-[1.04] transition-transform duration-500"
+                          loading="lazy"
+                        />
+
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-end p-2.5">
+                          <span className="text-[10px] font-mono text-[#c8f45e] flex items-center gap-1">
+                            <span>Expand Case Study</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Schematic Graphic for Team Hackathon */
+                      <div
+                        onClick={() => setSelectedProject(project)}
+                        className="relative aspect-[16/10] overflow-hidden rounded-xl border border-zinc-800/90 bg-[#0d0d12] p-4 flex flex-col justify-between cursor-pointer hover:border-zinc-700 transition-all"
+                      >
+                        <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                          Architecture Pipeline
+                        </div>
+                        <div className="space-y-1.5 py-2">
+                          <div className="h-1.5 w-3/4 rounded bg-zinc-800" />
+                          <div className="h-1.5 w-1/2 rounded bg-[#c8f45e]/40" />
+                          <div className="h-1.5 w-2/3 rounded bg-zinc-800" />
+                        </div>
+                        <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400">
+                          <span>Sign-Language CV</span>
+                          <span className="text-[#c8f45e]">CodeFury 9.0 ↗</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
+              </motion.article>
+            );
+          })}
+        </div>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-zinc-900 text-zinc-300 border border-zinc-800"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Clear Action Buttons */}
-                <div className="flex flex-wrap items-center gap-3 pt-3">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-zinc-950 hover:bg-zinc-200 text-xs sm:text-sm font-semibold transition-all shadow-[0_0_20px_rgba(255,255,255,0.12)]"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>Open Live Website</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-800 text-xs sm:text-sm font-mono transition-colors"
-                  >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    <span>View GitHub Code</span>
-                  </a>
-
-                  <button
-                    onClick={() => setSelectedProject(project)}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-950 text-zinc-300 hover:text-white hover:bg-zinc-900 border border-dashed border-zinc-800 text-xs sm:text-sm font-mono transition-colors"
-                  >
-                    <Layers className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Case Study & Architecture</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Right Column: Real Screenshot / Visual Preview */}
-              <div className="lg:col-span-5 w-full">
-                {project.image ? (
-                  <div
-                    onClick={() => setSelectedProject(project)}
-                    className="group/img relative rounded-2xl bg-zinc-950 border border-zinc-800/90 overflow-hidden shadow-2xl cursor-pointer"
-                  >
-                    {/* Browser Chrome Header */}
-                    <div className="flex items-center justify-between px-3 py-2 bg-zinc-900/90 border-b border-zinc-800 text-[11px] font-mono text-zinc-500">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700" />
-                      </div>
-                      <span className="truncate max-w-[200px] text-zinc-400">
-                        {project.liveUrl
-                          ? project.liveUrl.replace("https://", "")
-                          : "github.com/123swastik123"}
-                      </span>
-                      <span className="text-[10px] text-zinc-500">Preview</span>
-                    </div>
-
-                    {/* Screenshot Container */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-900">
-                      <Image
-                        src={project.image}
-                        alt={`${project.title} actual screenshot`}
-                        fill
-                        className="object-cover object-top group-hover/img:scale-[1.02] transition-transform duration-500"
-                        unoptimized
-                      />
-                    </div>
-
-                    <div className="p-3 bg-zinc-950/90 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
-                      <span>Actual Interface Screenshot</span>
-                      <span className="text-amber-400 group-hover/img:underline flex items-center gap-1">
-                        <span>Click to expand</span>
-                        <ArrowUpRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </div>
-                ) : (
-                  /* Schematic Fallback for OmniComm (Team Hackathon) */
-                  <div
-                    onClick={() => setSelectedProject(project)}
-                    className="p-6 rounded-2xl bg-zinc-950 border border-zinc-800/90 space-y-4 cursor-pointer hover:border-zinc-700 transition-colors"
-                  >
-                    <div className="flex items-center justify-between text-xs font-mono text-zinc-400 pb-2 border-b border-zinc-800">
-                      <span>System Integration Pipeline</span>
-                      <span className="text-amber-400">CodeFury 9.0</span>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3 py-2">
-                      <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-1">
-                        <span className="text-[10px] font-mono text-zinc-500 block uppercase">
-                          Step 1
-                        </span>
-                        <div className="text-xs font-semibold text-zinc-200">Video Gesture Capture</div>
-                        <div className="text-[11px] text-zinc-400">Live webcam hand landmark tracking</div>
-                      </div>
-
-                      <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-1">
-                        <span className="text-[10px] font-mono text-zinc-500 block uppercase">
-                          Step 2
-                        </span>
-                        <div className="text-xs font-semibold text-zinc-200">Vision Inference</div>
-                        <div className="text-[11px] text-zinc-400">Gesture sequence classification</div>
-                      </div>
-
-                      <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 space-y-1">
-                        <span className="text-[10px] font-mono text-amber-400 block uppercase">
-                          Step 3 (My Focus)
-                        </span>
-                        <div className="text-xs font-semibold text-amber-200">Integration Layer</div>
-                        <div className="text-[11px] text-amber-300/80">Connecting vision model to UI</div>
-                      </div>
-
-                      <div className="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-1">
-                        <span className="text-[10px] font-mono text-zinc-500 block uppercase">
-                          Step 4
-                        </span>
-                        <div className="text-xs font-semibold text-zinc-200">Decoded UI</div>
-                        <div className="text-[11px] text-zinc-400">Real-time readable conversation</div>
-                      </div>
-                    </div>
-
-                    <div className="pt-2 text-center text-xs font-mono text-zinc-400 group-hover:text-zinc-200">
-                      Click to explore full architecture case study →
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
+        {/* Bottom Link to GitHub */}
+        <div className="mt-12 flex justify-end">
+          <a
+            href="https://github.com/123swastik123"
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-colors"
+          >
+            <span>More experiments on GitHub</span>
+            <ArrowUpRight className="h-3.5 w-3.5 text-[#c8f45e] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </div>
       </div>
 
-      {/* Deep Dive Modal */}
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      {/* Deep-dive Case Study Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 }

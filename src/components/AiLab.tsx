@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 export default function AiLab() {
-  const [activeTab, setActiveTab] = useState<"civic" | "llm" | "hydroponics">("civic");
+  const [activeTab, setActiveTab] = useState<"hydroponics" | "civic" | "llm">("hydroponics");
 
   // CivicPath Simulator State
   const [resident, setResident] = useState(true);
@@ -159,62 +159,63 @@ export default function AiLab() {
   const hydroResult = getHydroHealth();
 
   return (
-    <section id="lab" className="py-24 px-4 sm:px-8 max-w-6xl mx-auto border-t border-zinc-800/80">
-      {/* Section Title */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400 mb-2">
-            <Terminal className="w-4 h-4 text-amber-400" />
-            <span>Interactive Engineering Sandbox</span>
+    <section id="lab" className="border-t border-zinc-800/80 bg-[#08080a]">
+      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+        {/* Section Title */}
+        <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400">
+              03 <span className="text-[#c8f45e]">—</span> AI Lab &amp; Sandbox
+            </span>
+            <h2 className="mt-4 text-4xl font-medium leading-[1.08] tracking-tight text-white md:text-5xl">
+              Test the models{" "}
+              <em className="font-serif italic text-[#c8f45e]">live.</em>
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
-            AI & ML Testing Lab
-          </h2>
+          <p className="max-w-md font-mono text-xs sm:text-sm text-zinc-400">
+            Interactive sandboxes demonstrating how my software works: hydroponic plant health ML predictions,
+            citizen eligibility trees, and local model hardware sizing.
+          </p>
         </div>
-        <p className="text-xs sm:text-sm text-zinc-400 max-w-md font-mono">
-          Interactive sandboxes demonstrating how my software works: citizen rule trees, local model
-          hardware sizing, and hydroponic plant health ML predictions.
-        </p>
-      </div>
 
-      {/* Tabs */}
-      <div className="flex flex-wrap gap-2 p-1.5 rounded-xl bg-zinc-900/70 border border-zinc-800/80 w-fit mb-8">
-        <button
-          onClick={() => setActiveTab("civic")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
-            activeTab === "civic"
-              ? "bg-zinc-100 text-zinc-950 font-bold shadow"
-              : "text-zinc-400 hover:text-white"
-          }`}
-        >
-          <Cpu className="w-3.5 h-3.5" />
-          <span>01. CivicPath: Rules vs. AI Chat</span>
-        </button>
+        {/* Tabs */}
+        <div className="flex flex-wrap gap-2 p-1.5 rounded-xl bg-zinc-900/70 border border-zinc-800/80 w-fit mb-8">
+          <button
+            onClick={() => setActiveTab("hydroponics")}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+              activeTab === "hydroponics"
+                ? "bg-white text-zinc-950 font-bold shadow"
+                : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            <Sprout className="w-3.5 h-3.5 text-emerald-500" />
+            <span>01. Hydroponics ML Tester</span>
+          </button>
 
-        <button
-          onClick={() => setActiveTab("llm")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
-            activeTab === "llm"
-              ? "bg-zinc-100 text-zinc-950 font-bold shadow"
-              : "text-zinc-400 hover:text-white"
-          }`}
-        >
-          <Sliders className="w-3.5 h-3.5" />
-          <span>02. Local AI Hardware Calculator</span>
-        </button>
+          <button
+            onClick={() => setActiveTab("civic")}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+              activeTab === "civic"
+                ? "bg-white text-zinc-950 font-bold shadow"
+                : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            <Cpu className="w-3.5 h-3.5" />
+            <span>02. CivicPath Rules Engine</span>
+          </button>
 
-        <button
-          onClick={() => setActiveTab("hydroponics")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
-            activeTab === "hydroponics"
-              ? "bg-zinc-100 text-zinc-950 font-bold shadow"
-              : "text-zinc-400 hover:text-white"
-          }`}
-        >
-          <Sprout className="w-3.5 h-3.5 text-emerald-400" />
-          <span>03. HydroMonitor: Plant Health ML Tester</span>
-        </button>
-      </div>
+          <button
+            onClick={() => setActiveTab("llm")}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+              activeTab === "llm"
+                ? "bg-white text-zinc-950 font-bold shadow"
+                : "text-zinc-400 hover:text-white"
+            }`}
+          >
+            <Sliders className="w-3.5 h-3.5" />
+            <span>03. Local LLM Calculator</span>
+          </button>
+        </div>
 
       {/* Interactive Window Card */}
       <div className="rounded-2xl bg-[#0c0c10] border border-zinc-800 p-6 sm:p-8">
@@ -813,6 +814,7 @@ export default function AiLab() {
             </div>
           </div>
         )}
+      </div>
       </div>
     </section>
   );

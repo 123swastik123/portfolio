@@ -1,102 +1,105 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PERSONAL_INFO, EDUCATION_INFO } from "@/data/portfolioData";
-import { ArrowDown, Terminal, Sparkles, MapPin, GraduationCap, FileText, ArrowUpRight } from "lucide-react";
+import { PERSONAL_INFO } from "@/data/portfolioData";
+import { ArrowDown, FileText, ArrowUpRight, Terminal } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-4 sm:px-8 max-w-6xl mx-auto overflow-hidden">
-      {/* Background Subtle Ambience & Hairline Grid */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-amber-500/5 via-zinc-700/5 to-transparent blur-3xl rounded-full" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f26_1px,transparent_1px),linear-gradient(to_bottom,#1f1f26_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-20" />
-      </div>
+    <section id="top" className="relative min-h-[95vh] flex flex-col justify-between pt-36 pb-12 px-6 sm:px-10 max-w-[1400px] mx-auto overflow-hidden">
+      {/* Background Subtle Radial Glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 85% 0%, rgba(200,244,94,0.08), transparent 70%)",
+        }}
+      />
 
-      {/* Top Meta Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-400 border-b border-zinc-800/80 pb-4"
-      >
-        <div className="flex items-center gap-2">
-          <MapPin className="w-3.5 h-3.5 text-zinc-400" />
-          <span>{PERSONAL_INFO.location}</span>
-        </div>
+      {/* Main Hero Content */}
+      <div className="w-full">
+        {/* Availability / Status Line */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 flex items-center gap-3 font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-zinc-400"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8f45e] opacity-75" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#c8f45e]" />
+          </span>
+          <span>Open to internships &amp; projects</span>
+        </motion.p>
 
-        <div className="flex items-center gap-2">
-          <GraduationCap className="w-3.5 h-3.5 text-zinc-400" />
-          <span>UVCE • B.Tech AI & Data Science (Class of &apos;29)</span>
-        </div>
-
-        <div className="flex items-center gap-2 text-zinc-300">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-          <span>2nd-Year Undergrad & Builder</span>
-        </div>
-      </motion.div>
-
-      {/* Center Statement & Large Editorial Headline */}
-      <div className="my-auto py-12 lg:py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
+        {/* Massive Bold Uppercase Name */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-6 max-w-4xl"
+          className="break-words text-[clamp(2.4rem,8.2vw,7.8rem)] font-bold leading-[0.98] tracking-[-0.03em] uppercase text-white"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-300">
-            <Sparkles className="w-3 h-3 text-amber-400" />
-            <span>Undergraduate Developer • AI & Data Science</span>
-          </div>
+          <span className="block overflow-hidden pb-[0.06em]">
+            <span className="inline-block">SWASTIK&nbsp;S.</span>
+          </span>
+          <span className="block overflow-hidden pb-[0.06em]">
+            <span className="inline-block">KARABASHETTAR</span>
+            <span className="inline-block text-[#c8f45e]">.</span>
+          </span>
+        </motion.h1>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.06]">
-            Building Practical AI Systems,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-300 to-zinc-500">
-              Computer Vision,
-            </span>{" "}
-            and Web Tools.
-          </h1>
-
-          <p className="text-base sm:text-xl text-zinc-400 max-w-2xl leading-relaxed font-normal">
-            I am <strong className="text-zinc-200 font-semibold">{PERSONAL_INFO.name}</strong>, a
-            second-year AI & Data Science student at UVCE Bengaluru. I learn by building things—from
-            citizen platforms with multi-LLM fallback to automated video editors and ML monitors.
+        {/* Editorial Subtext & Academic Metadata Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12 grid gap-8 md:grid-cols-12 md:items-end border-b border-zinc-800/80 pb-12"
+        >
+          <p className="max-w-xl font-serif text-2xl italic leading-snug text-zinc-100/90 md:col-span-7 md:text-3xl">
+            An AI &amp; data science student who likes to take new ideas —{" "}
+            <span className="text-[#c8f45e]">especially ones that involve AI</span> — and turn them into things that actually work.
           </p>
+          <div className="flex flex-col gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 md:col-span-5 md:items-end">
+            <span className="text-zinc-200">B.Tech · AI &amp; Data Science</span>
+            <span>UVCE, Bengaluru</span>
+            <span className="text-[#c8f45e]/90 font-medium">Class of 2029</span>
+          </div>
         </motion.div>
 
         {/* Action CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-4"
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
         >
           <a
             href="#work"
-            className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white text-zinc-950 font-medium text-sm hover:bg-zinc-200 transition-all shadow-[0_0_24px_rgba(255,255,255,0.15)]"
+            className="group flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-zinc-950 font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-zinc-200 transition-all shadow-[0_0_24px_rgba(255,255,255,0.15)]"
           >
             <span>Selected Projects</span>
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
           </a>
 
-          {/* Direct Resume Link */}
+          {/* Actual Resume PDF */}
           <a
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 hover:text-white border border-zinc-800 text-sm font-mono transition-all"
+            className="group flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#121216] hover:bg-[#1a1a20] text-zinc-200 hover:text-white border border-zinc-800 hover:border-[#c8f45e]/50 text-xs sm:text-sm font-mono uppercase tracking-wider transition-all"
           >
-            <FileText className="w-4 h-4 text-amber-400" />
+            <FileText className="w-4 h-4 text-[#c8f45e]" />
             <span>View Resume (PDF)</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
           </a>
 
           <a
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-zinc-800 text-sm font-mono transition-all"
+            className="flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#121216] text-zinc-300 hover:text-white hover:bg-[#1a1a20] border border-zinc-800 text-xs sm:text-sm font-mono uppercase tracking-wider transition-all"
           >
             <GithubIcon className="w-4 h-4" />
             <span>GitHub</span>
@@ -104,37 +107,31 @@ export default function Hero() {
 
           <a
             href="#lab"
-            className="hidden sm:flex items-center gap-2 px-4 py-3 rounded-full bg-transparent hover:bg-zinc-900/50 text-zinc-400 hover:text-zinc-200 border border-dashed border-zinc-800 text-xs font-mono transition-all"
+            className="flex items-center gap-2 px-5 py-3.5 rounded-full bg-zinc-900/50 hover:bg-zinc-900 text-zinc-400 hover:text-zinc-200 border border-dashed border-zinc-800 text-xs sm:text-sm font-mono uppercase tracking-wider transition-all"
           >
-            <Terminal className="w-3.5 h-3.5 text-amber-400" />
-            <span>Try Interactive AI Workbench</span>
+            <Terminal className="w-3.5 h-3.5 text-[#c8f45e]" />
+            <span>Interactive AI Lab</span>
           </a>
         </motion.div>
       </div>
 
-      {/* Bottom Minimal Editorial Strip */}
+      {/* Bottom Minimal Editorial Meta Strip */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="pt-8 border-t border-zinc-800/80 grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs font-mono"
+        className="pt-10 flex w-full items-end justify-between"
       >
-        <div>
-          <span className="block text-zinc-400 uppercase tracking-wider mb-1">Focus Area</span>
-          <span className="text-zinc-200 font-medium">GenAI & Applied ML</span>
-        </div>
-        <div>
-          <span className="block text-zinc-400 uppercase tracking-wider mb-1">Affiliation</span>
-          <span className="text-zinc-200 font-medium">UVCE, Bengaluru</span>
-        </div>
-        <div>
-          <span className="block text-zinc-400 uppercase tracking-wider mb-1">Current Research</span>
-          <span className="text-zinc-200 font-medium">Local Models & Quantization</span>
-        </div>
-        <div>
-          <span className="block text-zinc-400 uppercase tracking-wider mb-1">Core Ethos</span>
-          <span className="text-zinc-200 font-medium">Deterministic Scaffolding</span>
-        </div>
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+          Bengaluru, India
+        </span>
+        <a
+          href="#about"
+          className="group flex flex-col items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-white"
+        >
+          <span>Scroll</span>
+          <span className="block h-10 w-px bg-zinc-800 group-hover:bg-[#c8f45e] transition-colors" />
+        </a>
       </motion.div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { Project } from "@/types";
+import { PROJECT_SCREENSHOTS } from "@/data/projectScreenshots";
 import { X, ArrowUpRight, ExternalLink, CheckCircle2, Layers, Cpu, Code2, AlertCircle } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
 
@@ -83,19 +84,19 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Real Screenshot Banner */}
-        {project.image && (
+        {(PROJECT_SCREENSHOTS[project.id] || project.image) && (
           <div className="rounded-2xl bg-zinc-950 border border-zinc-800 overflow-hidden shadow-xl">
             <div className="px-4 py-2 bg-zinc-900 border-b border-zinc-800 text-xs font-mono text-zinc-400 flex items-center justify-between">
               <span>Verified Interface Screenshot</span>
               <span className="text-zinc-500">Live Application Preview</span>
             </div>
             <div className="relative aspect-[16/9] w-full bg-zinc-900">
-              <Image
-                src={project.image}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={PROJECT_SCREENSHOTS[project.id] || project.image}
                 alt={`${project.title} actual screenshot`}
-                fill
-                className="object-cover object-top"
-                unoptimized
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
               />
             </div>
           </div>

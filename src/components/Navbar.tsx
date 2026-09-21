@@ -1,169 +1,108 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { Mail, Check, Copy, Clock, Menu, X, ArrowUpRight, FileText } from "lucide-react";
+import { ArrowUpRight, Menu, X, FileText } from "lucide-react";
 
 export default function Navbar() {
-  const [copied, setCopied] = useState(false);
-  const [time, setTime] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: PERSONAL_INFO.timezone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      setTime(new Intl.DateTimeFormat("en-GB", options).format(now));
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(PERSONAL_INFO.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2400);
-    } catch {
-      // Fallback
-    }
-  };
 
   const navLinks = [
     { name: "Work", href: "#work" },
+    { name: "About", href: "#about" },
     { name: "AI Lab", href: "#lab" },
-    { name: "Skills", href: "#skills" },
+    { name: "Interests", href: "#interests" },
     { name: "Journey", href: "#journey" },
-    { name: "Contact", href: "#contact" },
+    { name: "Stack", href: "#stack" },
+    { name: "GitHub", href: "#github" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 py-4 sm:py-6 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-6xl px-4 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#0d0d12]/80 backdrop-blur-xl border border-zinc-800/80 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all">
-        {/* Left: Identity & Live Status */}
-        <div className="flex items-center gap-3">
-          <a
-            href="#"
-            className="group flex items-center gap-2.5 font-medium tracking-tight text-zinc-100 hover:text-white transition-colors"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
-            <span className="text-sm font-semibold tracking-tight">Swastik</span>
-            <span className="hidden md:inline-block text-xs text-zinc-400 font-mono tracking-wide">
-              / UVCE &apos;29
-            </span>
-          </a>
-        </div>
+    <header className="fixed inset-x-0 top-0 z-50 transition-colors duration-500 bg-[#08080a]/80 backdrop-blur-md border-b border-zinc-800/60">
+      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
+        {/* Left: Monogram Brand */}
+        <a
+          href="#top"
+          className="font-mono text-base font-bold tracking-tight text-white hover:opacity-90 transition-opacity"
+        >
+          SSK<span className="text-[#c8f45e]">.</span>
+        </a>
 
         {/* Center: Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1 bg-zinc-900/50 p-1 rounded-full border border-zinc-800/50">
+        <ul className="hidden items-center gap-7 lg:gap-8 md:flex">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/70 rounded-full transition-all"
-            >
-              {link.name}
-            </a>
+            <li key={link.name}>
+              <a
+                href={link.href}
+                className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-white"
+              >
+                {link.name}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* Right: Bengaluru Time & Copy Email CTA */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Bengaluru Clock */}
-          <div className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/60 border border-zinc-800/60 text-xs font-mono text-zinc-400">
-            <Clock className="w-3 h-3 text-zinc-400" />
-            <span>BLR {time || "--:--:--"}</span>
-          </div>
-
-          {/* Resume PDF Link */}
+        {/* Right Actions: Resume & Let's Talk */}
+        <div className="flex items-center gap-3">
           <a
             href={PERSONAL_INFO.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono text-zinc-300 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 transition-all"
-            title="View Resume (PDF)"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-[#0e0e12] px-3.5 py-2 font-mono text-xs uppercase tracking-[0.15em] text-zinc-300 transition-all hover:border-[#c8f45e] hover:text-[#c8f45e]"
           >
-            <FileText className="w-3.5 h-3.5 text-amber-400" />
-            <span>Resume</span>
+            <FileText className="h-3.5 w-3.5 text-[#c8f45e]" />
+            <span>CV (PDF)</span>
           </a>
 
-          {/* Copy Email Button */}
-          <button
-            onClick={copyEmail}
-            className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-mono tracking-tight bg-zinc-100 text-zinc-950 hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] active:scale-95 transition-all"
-            title="Copy email address"
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="group inline-flex items-center gap-1.5 rounded-full border border-zinc-700 bg-white text-zinc-950 px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300 hover:border-[#c8f45e] hover:bg-[#c8f45e] hover:text-zinc-950 shadow-sm"
           >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span className="font-semibold text-emerald-800">Copied</span>
-              </>
-            ) : (
-              <>
-                <Mail className="w-3.5 h-3.5" />
-                <span className="font-semibold">Get in Touch</span>
-              </>
-            )}
-          </button>
+            <span>Let&apos;s talk</span>
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-full text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/50 transition-colors"
+            className="md:hidden p-2 rounded-full text-zinc-400 hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto md:hidden fixed inset-x-4 top-20 rounded-2xl bg-[#0e0e13]/95 backdrop-blur-2xl border border-zinc-800 p-6 shadow-2xl flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80 text-xs font-mono text-zinc-400">
-            <span>BENGALURU, IN (IST)</span>
-            <span className="text-zinc-200 font-semibold">{time}</span>
-          </div>
-          <div className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-mono tracking-wider text-zinc-300 hover:text-white hover:bg-zinc-800/60 transition-colors"
-              >
-                <span>{link.name}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
-              </a>
-            ))}
-          </div>
-          <div className="pt-3 border-t border-zinc-800/80 flex flex-col gap-2">
+        <div className="md:hidden border-t border-zinc-800 bg-[#08080a]/95 backdrop-blur-xl px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-widest">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-zinc-300 hover:text-[#c8f45e] transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="pt-4 border-t border-zinc-800/80 flex flex-col gap-2">
             <a
               href={PERSONAL_INFO.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-mono tracking-wider bg-zinc-900 border border-zinc-800 text-zinc-200 font-semibold hover:bg-zinc-800 transition-all"
+              className="flex items-center gap-2 py-2 text-zinc-400 hover:text-white"
             >
-              <FileText className="w-4 h-4 text-amber-400" />
-              <span>View Resume (PDF)</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+              <FileText className="h-4 w-4 text-[#c8f45e]" />
+              <span>Download CV (PDF)</span>
             </a>
-
-            <button
-              onClick={copyEmail}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-mono tracking-wider bg-zinc-100 text-zinc-950 font-semibold hover:bg-white transition-all"
+            <a
+              href={`mailto:${PERSONAL_INFO.email}`}
+              className="flex items-center gap-2 py-2 text-[#c8f45e]"
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? "Email Copied to Clipboard" : PERSONAL_INFO.email}</span>
-            </button>
+              <span>{PERSONAL_INFO.email}</span>
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       )}

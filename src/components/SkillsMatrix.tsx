@@ -1,84 +1,98 @@
 "use client";
 
-import { SKILL_CATEGORIES } from "@/data/portfolioData";
-import { Check, Terminal, Cpu, Database, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
+
+const STACK_CATEGORIES = [
+  {
+    name: "Languages",
+    skills: ["Python", "C", "C++", "HTML & CSS", "JavaScript — basics"],
+  },
+  {
+    name: "AI & ML",
+    skills: [
+      "Generative AI",
+      "LLM integration",
+      "Local LLM experimentation",
+      "Machine Learning",
+    ],
+  },
+  {
+    name: "Web & backend",
+    skills: [
+      "Next.js",
+      "React",
+      "FastAPI",
+      "Supabase",
+      "PostgreSQL",
+      "Vercel",
+      "Render",
+    ],
+  },
+  {
+    name: "Tools",
+    skills: ["Git", "GitHub", "Linux", "FFmpeg"],
+  },
+];
 
 export default function SkillsMatrix() {
-  const categoryIcons = [
-    <Terminal key="term" className="w-4 h-4 text-amber-400" />,
-    <Cpu key="cpu" className="w-4 h-4 text-amber-400" />,
-    <Database key="db" className="w-4 h-4 text-amber-400" />,
-    <Wrench key="wr" className="w-4 h-4 text-amber-400" />,
-  ];
-
   return (
-    <section id="skills" className="py-24 px-4 sm:px-8 max-w-6xl mx-auto border-t border-zinc-800/80">
-      {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400 mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            <span>Honest Technical Scope</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
-            Skills & Working Knowledge
-          </h2>
-        </div>
-        <p className="text-xs sm:text-sm text-zinc-400 max-w-md font-mono">
-          No arbitrary 99% proficiency bars. Only tools and technologies I actually write code in,
-          with authentic context on how they fit into my projects.
-        </p>
-      </div>
-
-      {/* Skills Grid: 2 Columns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {SKILL_CATEGORIES.map((cat, idx) => (
-          <div
-            key={cat.title}
-            className="rounded-2xl bg-[#0c0c10] border border-zinc-800/80 p-6 sm:p-8 space-y-6 hover:border-zinc-700/80 transition-colors"
-          >
-            {/* Category Title & Icon */}
-            <div className="flex items-center justify-between pb-4 border-b border-zinc-800/80">
-              <div className="flex items-center gap-2.5">
-                {categoryIcons[idx % categoryIcons.length]}
-                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                  {cat.title}
-                </h3>
-              </div>
-              <span className="text-[11px] font-mono text-zinc-400">
-                0{idx + 1}
+    <section id="stack" className="border-t border-zinc-800/80 bg-[#08080a]">
+      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+        <div className="grid gap-12 md:grid-cols-12">
+          {/* Left Column: Heading and Context */}
+          <div className="md:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400">
+                06 <span className="text-[#c8f45e]">—</span> Stack
               </span>
-            </div>
+              <h2 className="mt-6 text-4xl font-medium leading-[1.08] tracking-tight text-white md:text-5xl">
+                Tools I reach for{" "}
+                <em className="font-serif italic text-[#c8f45e]">today.</em>
+              </h2>
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-zinc-400 font-mono">
+                Listed honestly — grouped roughly by what I use them for. Some are
+                comfortable, some are still being learned. No fake percentages here.
+              </p>
+            </motion.div>
+          </div>
 
-            <p className="text-xs font-mono text-zinc-400 leading-relaxed">
-              {cat.subtitle}
-            </p>
-
-            {/* List of Skills with Context */}
-            <div className="space-y-4">
-              {cat.items.map((item) => (
-                <div
-                  key={item.name}
-                  className="group p-3.5 rounded-xl bg-zinc-900/40 hover:bg-zinc-900/70 border border-zinc-800/50 hover:border-zinc-700/60 transition-all space-y-1.5"
+          {/* Right Column: Categories and Pill Badges */}
+          <div className="md:col-span-8">
+            <div className="border-t border-zinc-800/80">
+              {STACK_CATEGORIES.map((cat, idx) => (
+                <motion.div
+                  key={cat.name}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="border-b border-zinc-800/80 py-6"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors">
-                      {item.name}
+                  <div className="grid gap-3 md:grid-cols-4">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500 md:pt-1.5">
+                      {cat.name}
                     </span>
-                    {item.tag && (
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-800/80 text-zinc-400 border border-zinc-700/40">
-                        {item.tag}
-                      </span>
-                    )}
+                    <div className="flex flex-wrap gap-2.5 md:col-span-3">
+                      {cat.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-zinc-800/80 bg-zinc-900/60 px-3.5 py-1.5 text-sm text-zinc-300 transition-colors duration-300 hover:border-[#c8f45e] hover:bg-[#c8f45e] hover:text-zinc-950 cursor-default select-none"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
-                    {item.context}
-                  </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
