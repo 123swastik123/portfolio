@@ -87,14 +87,16 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-zinc-950 hover:bg-zinc-200 text-xs font-semibold uppercase tracking-wider transition-colors"
+                  title="View Resume PDF in new tab"
                 >
                   <ArrowUpRight className="w-3.5 h-3.5" />
                   <span>View PDF</span>
                 </a>
                 <a
-                  href={PERSONAL_INFO.resumeUrl}
+                  href="/resume.pdf?download=true"
                   download="Swastik_S_Karabashettar_Resume.pdf"
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-900 text-zinc-300 hover:text-white border border-zinc-800 text-xs font-mono transition-colors"
+                  title="Download Resume PDF file"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download</span>
@@ -165,25 +167,6 @@ export default function About() {
               <span className="col-span-3 text-sm text-[#c8f45e]">
                 Second year — learning &amp; building
               </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-5 gap-4 border-b border-zinc-800 py-4.5"
-            >
-              <span className="col-span-2 font-mono text-[11px] uppercase tracking-[0.15em] text-zinc-500">
-                Email
-              </span>
-              <a
-                href={`mailto:${PERSONAL_INFO.email}`}
-                className="col-span-3 text-sm font-mono lowercase text-zinc-300 hover:text-[#c8f45e] transition-colors truncate"
-                title="Compose email to swastikarabashettar@gmail.com"
-              >
-                {PERSONAL_INFO.email}
-              </a>
             </motion.div>
           </div>
         </div>

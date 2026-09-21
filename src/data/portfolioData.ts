@@ -8,6 +8,7 @@ export const PERSONAL_INFO = {
   coordinates: "12.9716° N, 77.5946° E",
   timezone: "Asia/Kolkata",
   email: "swastikarabashettar@gmail.com",
+  gmailUrl: "https://mail.google.com/mail/?view=cm&fs=1&to=swastikarabashettar@gmail.com",
   phone: "+91 9108263297",
   github: "https://github.com/123swastik123",
   resumeUrl: "/resume.pdf",

@@ -58,41 +58,34 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-16 flex flex-wrap gap-4 items-center"
         >
-          {/* Email / Get in Touch primary button */}
+          {/* Primary Action: Open Gmail */}
           <a
-            href={`mailto:${PERSONAL_INFO.email}`}
+            href={PERSONAL_INFO.gmailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex w-fit items-center gap-2.5 rounded-full bg-[#c8f45e] px-7 py-4 font-mono text-xs sm:text-sm uppercase tracking-wider text-zinc-950 font-bold transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d6f87d] shadow-[0_0_24px_rgba(200,244,94,0.25)] cursor-pointer"
-            title="Compose email to Swastik"
+            title="Open Gmail to compose email to Swastik"
           >
             <Mail className="h-4 w-4 text-zinc-950 shrink-0" />
-            <span>Email / Get in Touch</span>
+            <span>Open in Gmail</span>
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
           </a>
 
-          {/* Email address clickable chip */}
-          <a
-            href={`mailto:${PERSONAL_INFO.email}`}
-            className="group inline-flex w-fit items-center gap-2 rounded-full border border-zinc-800 bg-[#0d0d12] px-6 py-4 font-mono text-xs sm:text-sm lowercase tracking-normal text-zinc-200 transition-colors duration-300 hover:border-[#c8f45e] hover:text-[#c8f45e] cursor-pointer"
-            title="Click to email swastikarabashettar@gmail.com"
-          >
-            <span className="lowercase font-mono select-all">{PERSONAL_INFO.email}</span>
-            <ArrowUpRight className="h-3.5 w-3.5 text-zinc-500 group-hover:text-[#c8f45e] shrink-0" />
-          </a>
-
-          {/* Copy email button */}
+          {/* Copy Email Button */}
           <button
             onClick={copyEmail}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-zinc-800 bg-[#0d0d12] px-6 py-4 font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-zinc-300 transition-colors duration-300 hover:border-zinc-600 hover:text-white"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-zinc-800 bg-[#0d0d12] px-6 py-4 font-mono text-xs sm:text-sm lowercase tracking-normal text-zinc-300 transition-colors duration-300 hover:border-[#c8f45e] hover:text-white cursor-pointer"
+            title="Click to copy email address"
           >
             {copied ? (
               <>
                 <Check className="h-4 w-4 text-[#c8f45e]" />
-                <span>Copied!</span>
+                <span className="text-[#c8f45e] font-semibold">Copied to clipboard!</span>
               </>
             ) : (
               <>
-                <Copy className="h-4 w-4" />
-                <span>Copy Email</span>
+                <Copy className="h-4 w-4 text-zinc-400" />
+                <span>{PERSONAL_INFO.email} (Copy)</span>
               </>
             )}
           </button>
@@ -129,14 +122,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="mt-12 max-w-lg text-sm leading-relaxed text-zinc-400 font-mono">
-            Based in Bengaluru. Happy to talk about AI, machine learning, internships or anything you think I should be building next. Reach me directly at{" "}
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              className="text-[#c8f45e] hover:underline lowercase select-all font-semibold"
-            >
-              {PERSONAL_INFO.email}
-            </a>
-            .
+            Based in Bengaluru. Happy to talk about AI, machine learning, internships or anything you think I should be building next.
           </p>
         </motion.div>
       </div>

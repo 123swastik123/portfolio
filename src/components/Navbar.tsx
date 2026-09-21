@@ -45,9 +45,11 @@ export default function Navbar() {
         {/* Right Actions: Email, Resume & Menu */}
         <div className="flex items-center gap-3">
           <a
-            href={`mailto:${PERSONAL_INFO.email}`}
+            href={PERSONAL_INFO.gmailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden xl:inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-[#0e0e12] px-3.5 py-2 font-mono text-xs lowercase tracking-normal text-zinc-300 transition-all hover:border-[#c8f45e] hover:text-[#c8f45e]"
-            title="Email swastikarabashettar@gmail.com"
+            title="Compose in Gmail (swastikarabashettar@gmail.com)"
           >
             <Mail className="h-3.5 w-3.5 text-[#c8f45e]" />
             <span>{PERSONAL_INFO.email}</span>
@@ -98,8 +100,11 @@ export default function Navbar() {
               <span>Download CV (PDF)</span>
             </a>
             <a
-              href={`mailto:${PERSONAL_INFO.email}`}
+              href={PERSONAL_INFO.gmailUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-between py-2 text-[#c8f45e] lowercase tracking-normal font-mono"
+              title="Compose in Gmail"
             >
               <span className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0" />
