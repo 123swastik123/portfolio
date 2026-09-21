@@ -1,7 +1,7 @@
 import { Project, SkillCategory, EducationInfo } from "@/types";
 
 export const PERSONAL_INFO = {
-  name: "Swastik S. Karabashettar",
+  name: "Swastik S. Arabashettar",
   shortName: "Swastik",
   role: "B.Tech Student & AI Developer",
   location: "Bengaluru, Karnataka, India",

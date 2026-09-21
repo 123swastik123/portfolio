@@ -42,10 +42,12 @@ export default function Hero() {
           className="break-words text-[clamp(2.4rem,8.2vw,7.8rem)] font-bold leading-[0.98] tracking-[-0.03em] uppercase text-white"
         >
           <span className="block overflow-hidden pb-[0.06em]">
-            <span className="inline-block">SWASTIK&nbsp;S.</span>
+            <span className="inline-block">
+              SWASTIK<span className="text-[#c8f45e]">.</span>S<span className="text-[#c8f45e]">.</span>
+            </span>
           </span>
           <span className="block overflow-hidden pb-[0.06em]">
-            <span className="inline-block">KARABASHETTAR</span>
+            <span className="inline-block">ARABASHETTAR</span>
             <span className="inline-block text-[#c8f45e]">.</span>
           </span>
         </motion.h1>
