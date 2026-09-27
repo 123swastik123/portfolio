@@ -35,100 +35,8 @@ export const EDUCATION_INFO: EducationInfo = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "civicpath",
-    number: "01",
-    title: "CivicPath / NammaPath",
-    subtitle: "Multilingual Government Services Assistant for Karnataka",
-    category: "AI & Civic Web Platform",
-    period: "2026",
-    image: "/api/image/nammapath.png",
-    whatItIs:
-      "A free citizen-guidance website that helps people in Karnataka understand which government services they qualify for, what documents they need, and step-by-step how to apply. Available in English, Kannada, and Hindi across 15+ state and central schemes.",
-    problemSolved:
-      "Finding government scheme requirements in Karnataka is often confusing and spread across disjointed portals. Citizens often struggle with eligibility requirements, language barriers, and figuring out what official paperwork to bring.",
-    whatIBuilt:
-      "Built the full-stack web application using Next.js, TypeScript, and Supabase. Engineered a strict rule engine so eligibility results are calculated from verified data without relying on AI guesses, and added multi-model AI fallback (Groq → Gemini → Claude) to explain results in plain language with downloadable PDF checklists.",
-    whyItsInteresting:
-      "Unlike standard AI chatbots that might hallucinate legal rules, CivicPath separates rule evaluation from text explanation. The rule check runs against verified state criteria first; the AI only explains the steps and generates your checklist. It also features automatic provider failover so the site stays online even if an AI provider goes down.",
-    keyFeatures: [
-      "Plain rule-based condition trees over verified database (no AI hallucinations for rules/fees)",
-      "Multi-provider AI fallback: tries Groq first, then Gemini, then Claude",
-      "AI responses validated with Zod schemas before being shown to users",
-      "Multilingual support in English, Kannada, and Hindi",
-      "Automated PDF application checklist generation (pdf-lib)",
-      "Supabase / PostgreSQL database with row-level security and 37 Jest tests",
-    ],
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "PostgreSQL",
-      "Groq / Gemini / Claude APIs",
-      "Tailwind CSS",
-      "Jest",
-    ],
-    githubUrl: "https://github.com/123swastik123/Government-work-assistant-ai",
-    liveUrl: "https://government-work-assistant-ai-two.vercel.app/",
-    badgeText: "Live Web App",
-    architectureDiagram: {
-      nodes: [
-        { label: "Citizen Input", role: "Age, income, residency details", type: "input" },
-        { label: "Rule Engine", role: "Checked against verified policy data", type: "process" },
-        { label: "AI Explainer", role: "Plain Kannada, Hindi & English", type: "ai" },
-        { label: "PDF Checklist", role: "Required documents & next steps", type: "output" },
-      ],
-      flowDescription:
-        "User Input → Verified Database Rule Check (100% Accurate) → AI Language Explanation → Downloadable PDF Roadmap",
-    },
-  },
-  {
-    id: "autoclip",
-    number: "02",
-    title: "AutoClip",
-    subtitle: "Automated AI Short-Form Video Generator",
-    category: "Computer Vision & Audio ML",
-    period: "2026",
-    image: "/api/image/autoclip.png",
-    whatItIs:
-      "An automated video processing pipeline that takes long horizontal videos (interviews, podcasts, talks) and automatically converts them into vertical (9:16) YouTube Shorts and Reels.",
-    problemSolved:
-      "Manually editing horizontal video into vertical clips is slow and repetitive: you have to manually crop, track speakers as they move, transcribe audio, time subtitles, and add background music.",
-    whatIBuilt:
-      "Developed the end-to-end Python automation pipeline using OpenCV, FFmpeg, and Faster-Whisper. Implemented face detection to keep the speaker centered with smooth camera panning, word-by-word animated karaoke subtitles, audio ducking, and automated quality checks.",
-    whyItsInteresting:
-      "It eliminates hours of manual video editing. It uses OpenCV to track the speaker's face with motion smoothing so the camera doesn't jitter, adds dynamic karaoke subtitles synchronized down to the word, and runs automated checks on frame rate, audio loudness, and pacing before finalizing the video.",
-    keyFeatures: [
-      "Face tracking with OpenCV that pans the 9:16 crop smoothly to follow speakers",
-      "Automatic zoom-in on high-energy conversational moments",
-      "Word-by-word animated karaoke captions using Faster-Whisper",
-      "Background music that automatically quiets down (ducks) under speech",
-      "Automated two-gate QA: technical checks (1080x1920, 30 FPS, loudness) and creative checks (speaker visibility, pacing)",
-      "37 Pytest automated tests ensuring pipeline stability",
-    ],
-    technologies: [
-      "Python",
-      "OpenCV",
-      "Faster-Whisper",
-      "FFmpeg",
-      "Audio Processing",
-      "Pytest",
-    ],
-    githubUrl: "https://github.com/123swastik123/Autoclip",
-    badgeText: "Video Automation",
-    architectureDiagram: {
-      nodes: [
-        { label: "Long 16:9 Video", role: "Source horizontal footage", type: "input" },
-        { label: "OpenCV Face Tracker", role: "Keeps speaker centered without jitter", type: "process" },
-        { label: "Faster-Whisper AI", role: "Word-level timestamped captions", type: "ai" },
-        { label: "Vertical 9:16 Short", role: "Karaoke captions + audio ducking", type: "output" },
-      ],
-      flowDescription:
-        "Horizontal Video → Face Tracking + Faster-Whisper Transcription → Dynamic Crop + Audio Ducking → 9:16 Rendered Short",
-    },
-  },
-  {
     id: "smart-hydroponics",
-    number: "03",
+    number: "01",
     title: "HydroMonitor AI",
     subtitle: "Smart Hydroponic Plant Health Monitoring System",
     category: "IoT Telemetry & Machine Learning",
@@ -175,46 +83,196 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: "civicpath",
+    number: "02",
+    title: "CivicPath / NammaPath",
+    subtitle: "Multilingual Government Services Assistant for Karnataka",
+    category: "AI & Civic Web Platform",
+    period: "2026",
+    image: "/api/image/nammapath.png",
+    whatItIs:
+      "A free citizen-guidance website that helps people in Karnataka understand which government services they qualify for, what documents they need, and step-by-step how to apply. Available in English, Kannada, and Hindi across 15+ state and central schemes.",
+    problemSolved:
+      "Finding government scheme requirements in Karnataka is often confusing and spread across disjointed portals. Citizens often struggle with eligibility requirements, language barriers, and figuring out what official paperwork to bring.",
+    whatIBuilt:
+      "Built the full-stack web application using Next.js, TypeScript, and Supabase. Engineered a strict rule engine so eligibility results are calculated from verified data without relying on AI guesses, and added multi-model AI fallback (Groq → Gemini → Claude) to explain results in plain language with downloadable PDF checklists.",
+    whyItsInteresting:
+      "Unlike standard AI chatbots that might hallucinate legal rules, CivicPath separates rule evaluation from text explanation. The rule check runs against verified state criteria first; the AI only explains the steps and generates your checklist. It also features automatic provider failover so the site stays online even if an AI provider goes down.",
+    keyFeatures: [
+      "Plain rule-based condition trees over verified database (no AI hallucinations for rules/fees)",
+      "Multi-provider AI fallback: tries Groq first, then Gemini, then Claude",
+      "AI responses validated with Zod schemas before being shown to users",
+      "Multilingual support in English, Kannada, and Hindi",
+      "Automated PDF application checklist generation (pdf-lib)",
+      "Supabase / PostgreSQL database with row-level security and 37 Jest tests",
+    ],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Groq / Gemini / Claude APIs",
+      "Tailwind CSS",
+      "Jest",
+    ],
+    githubUrl: "https://github.com/123swastik123/Government-work-assistant-ai",
+    liveUrl: "https://government-work-assistant-ai-two.vercel.app/",
+    badgeText: "Live Web App",
+    architectureDiagram: {
+      nodes: [
+        { label: "Citizen Input", role: "Age, income, residency details", type: "input" },
+        { label: "Rule Engine", role: "Checked against verified policy data", type: "process" },
+        { label: "AI Explainer", role: "Plain Kannada, Hindi & English", type: "ai" },
+        { label: "PDF Checklist", role: "Required documents & next steps", type: "output" },
+      ],
+      flowDescription:
+        "User Input → Verified Database Rule Check (100% Accurate) → AI Language Explanation → Downloadable PDF Roadmap",
+    },
+  },
+  {
+    id: "study-drive",
+    number: "03",
+    title: "Study Drive / College Manager",
+    subtitle: "Academic Command Center & Epistemic Truth Engine (UVCE AI&DS)",
+    category: "AI Systems & Academic OS",
+    period: "2026",
+    image: "/api/image/studydrive.png",
+    whatItIs:
+      "An academic command center and personal AI assistant for UVCE Semester 3 Artificial Intelligence & Data Science, engineered with an epistemic truth engine: NO EVIDENCE = NO FACT. Quarantines unconfirmed chat rumors, indexes 100+ Google Drive study notes, and tracks real-time university attendance compliance.",
+    problemSolved:
+      "College WhatsApp groups are flooded with unverified exam dates, conflicting timetable rumors, and lost assignment deadlines. Meanwhile, tracking 75% university attendance rules and finding semester notes across multiple drives causes unnecessary academic anxiety.",
+    whatIBuilt:
+      "Engineered the full-stack system with FastAPI, SQLite, and an Arshakir dark-theme student OS. Built a WhatsApp collector daemon that quarantines unverified chat rumors until verified against official departmental circulars, integrated a local Gemma 4 RAG pipeline with KaTeX STEM math rendering, and implemented dynamic 75% attendance compliance tracking.",
+    whyItsInteresting:
+      "Adheres to a strict Epistemic Truth Engine ('NO EVIDENCE = NO FACT'). Unverified messages in WhatsApp groups are held in quarantine rather than blindly trusted. The AI assistant cites verified departmental source documents before confirming any academic deadlines, preventing hallucinated dates or exam misinformation.",
+    keyFeatures: [
+      "Epistemic Truth Engine with WhatsApp rumor quarantine ('NO EVIDENCE = NO FACT')",
+      "75% university attendance compliance calculator with dynamic safe-skip metrics",
+      "Verified Semester 3 subjects hub (DSA, ML, TOC, DMS, Networking, Labs)",
+      "Indexed Google Drive study notes with semester historical archive separation",
+      "Local Gemma 4 AI Assistant with KaTeX mathematical formula rendering",
+      "Real-time Omnibar global search (Ctrl+K) with provenance status badges",
+      "Serverless Vercel cloud deployment with automated SQLite staging",
+    ],
+    technologies: [
+      "FastAPI",
+      "Python",
+      "SQLite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Gemma 4 / Ollama",
+      "KaTeX",
+      "Vercel Serverless",
+    ],
+    githubUrl: "https://github.com/123swastik123/college_manager",
+    liveUrl: "https://college-manager.vercel.app/",
+    badgeText: "Live Academic OS",
+    architectureDiagram: {
+      nodes: [
+        { label: "Class Chat & Gmail", role: "Unverified messages & notices", type: "input" },
+        { label: "Truth Engine Quarantine", role: "Verification against official circulars", type: "process" },
+        { label: "RAG & Formula Engine", role: "Gemma 4 + KaTeX STEM math", type: "ai" },
+        { label: "Command Center", role: "Schedule, 75% attendance & Drive hub", type: "output" },
+      ],
+      flowDescription:
+        "Raw Chat Ingest → Strict Truth-Engine Quarantine (NO EVIDENCE = NO FACT) → Gemma 4 RAG Verification → Live Student Dashboard",
+    },
+  },
+  {
     id: "omnicomm",
     number: "04",
     title: "OmniComm",
-    subtitle: "Sign-Language Recognition & Communication Assistant",
-    category: "Computer Vision & Team Hackathon",
-    period: "CodeFury 9.0",
+    subtitle: "Real-Time AI Sign Language & Speech Communication Platform",
+    category: "Computer Vision & Multimodal AI",
+    period: "CodeFury 9.0 · 2026",
     image: "/api/image/omnicomm.png",
     whatItIs:
-      "A computer vision communication assistant that translates sign-language gestures captured by camera into readable text, built during the CodeFury 9.0 hackathon.",
+      "A bidirectional AI communication platform bridging Indian Sign Language (ISL) / ASL signers and speaking peers through real-time MediaPipe hand tracking, neural token translation, and automated speech synthesis.",
     problemSolved:
-      "Sign-language users often encounter friction when communicating with non-signers who cannot understand hand gestures in daily conversations.",
+      "Over 70 million deaf individuals globally encounter friction communicating with non-signers in everyday healthcare, civic, and professional settings where trained human interpreters are unavailable.",
     whatIBuilt:
-      "Worked as part of team 'Byte Hogs' (team of 4). I did most of the core development and system integration work, connecting the sign-language recognition vision model with the application frontend so gestures are captured and translated in real-time.",
+      "Developed the computer vision landmark extraction pipeline using MediaPipe Hands, designed the gesture-token grammar stitching engine, and built an interactive cyberpunk glassmorphic UI with WebRTC video calling and dual-channel live subtitles.",
     whyItsInteresting:
-      "Engineered under rapid 24-hour hackathon deadlines, bridging computer vision landmark inference with application state to provide smooth, real-time gesture feedback.",
+      "Prioritizes human agency over black-box guessing: rather than immediately speaking unverified tokens, recognized sign gestures are compiled into natural grammatical sentences and shown in an AI Review Dock for signer confirmation before TTS audio is broadcast.",
     teamAttribution:
-      "Team project of 4 (Byte Hogs) for CodeFury 9.0. We integrated an existing sign-language model into the app, and I did most of the development and system integration work.",
+      "Team project of 4 (Byte Hogs) for CodeFury 9.0. We integrated an existing sign-language model into the app, and I did most of the core development, UI engineering, and system integration work.",
     keyFeatures: [
-      "Real-time hand gesture tracking and landmark extraction",
-      "Translates hand signs into live text output",
-      "Developed under 24-hour hackathon constraints at CodeFury 9.0",
-      "Focus on end-to-end model integration and state synchronization",
+      "Real-time 21-point 3D hand landmark tracking via MediaPipe",
+      "Dual-mode support for Indian Sign Language (ISL) and American Sign Language (ASL)",
+      "Grammar stitching engine: converts raw token sequences into fluent sentences",
+      "Human-in-the-loop AI Review Dock with 1-click signer confirmation",
+      "Two-way audio pipeline: Whisper speech-to-text + Web Speech TTS synthesis",
+      "Futuristic cyber-glass darkroom UI with live landmark vector HUD and audio waveforms",
     ],
     technologies: [
       "Python",
-      "Computer Vision",
-      "System Integration",
-      "Team Hackathon",
+      "MediaPipe",
+      "OpenCV",
+      "FastAPI",
+      "WebRTC",
+      "Tailwind CSS",
+      "Whisper",
+      "JavaScript (ES6+)",
     ],
     githubUrl: "https://github.com/123swastik123",
-    badgeText: "Hackathon Integration",
+    badgeText: "Vision & WebRTC",
     architectureDiagram: {
       nodes: [
-        { label: "Camera Feed", role: "Captures hand gesture movements", type: "input" },
-        { label: "Vision Model", role: "Identifies sign language landmarks", type: "ai" },
-        { label: "Integration Layer", role: "Translates coordinates to tokens (My Work)", type: "process" },
-        { label: "Text Display", role: "Displays readable conversation", type: "output" },
+        { label: "Webcam Video", role: "Captures 21 3D hand landmarks", type: "input" },
+        { label: "MediaPipe & ML", role: "Classifies ISL / ASL gesture tokens", type: "ai" },
+        { label: "Grammar Stitcher", role: "Human confirmation & sentence assembly", type: "process" },
+        { label: "Audio Synthesis", role: "TTS audio & live bidirectional captions", type: "output" },
       ],
       flowDescription:
-        "Webcam Feed → Gesture Recognition Model → Integration Layer (My Work) → Live Text Display",
+        "Camera Video → 21-Landmark Vector Tracking → ML Token Classification → Grammar Assembly → Voice Audio & Captions",
+    },
+  },
+  {
+    id: "autoclip",
+    number: "05",
+    title: "AutoClip",
+    subtitle: "Automated AI Short-Form Video Generator & Motion Director",
+    category: "Computer Vision & Audio ML",
+    period: "2026",
+    image: "/api/image/autoclip.png",
+    whatItIs:
+      "An automated video processing pipeline that takes long horizontal videos (interviews, podcasts, talks) and automatically converts them into vertical (9:16) YouTube Shorts and Reels.",
+    problemSolved:
+      "Manually editing horizontal video into vertical clips is slow and repetitive: you have to manually crop, track speakers as they move, transcribe audio, time subtitles, and add background music.",
+    whatIBuilt:
+      "Developed the end-to-end Python automation pipeline using OpenCV, FFmpeg, and Faster-Whisper. Implemented face detection to keep the speaker centered with smooth camera panning, word-by-word animated karaoke subtitles, audio ducking, and automated quality checks.",
+    whyItsInteresting:
+      "It eliminates hours of manual video editing. It uses OpenCV to track the speaker's face with motion smoothing so the camera doesn't jitter, adds dynamic karaoke subtitles synchronized down to the word, and runs automated checks on frame rate, audio loudness, and pacing before finalizing the video.",
+    keyFeatures: [
+      "Face tracking with OpenCV that pans the 9:16 crop smoothly to follow speakers",
+      "Automatic zoom-in on high-energy conversational moments",
+      "Word-by-word animated karaoke captions using Faster-Whisper",
+      "Background music that automatically quiets down (ducks) under speech",
+      "Automated two-gate QA: technical checks (1080x1920, 30 FPS, loudness) and creative checks (speaker visibility, pacing)",
+      "Comprehensive automated test suite (333 tests passed) ensuring pipeline stability",
+      "Modern darkroom edit-suite UI with multitrack timeline and interactive preview",
+    ],
+    technologies: [
+      "Python",
+      "OpenCV",
+      "Faster-Whisper",
+      "FFmpeg",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Pytest",
+    ],
+    githubUrl: "https://github.com/123swastik123/Autoclip",
+    badgeText: "Video Automation",
+    architectureDiagram: {
+      nodes: [
+        { label: "Long 16:9 Video", role: "Source horizontal footage", type: "input" },
+        { label: "OpenCV Face Tracker", role: "Keeps speaker centered without jitter", type: "process" },
+        { label: "Faster-Whisper AI", role: "Word-level timestamped captions", type: "ai" },
+        { label: "Vertical 9:16 Short", role: "Karaoke captions + audio ducking", type: "output" },
+      ],
+      flowDescription:
+        "Horizontal Video → Face Tracking + Faster-Whisper Transcription → Dynamic Crop + Audio Ducking → 9:16 Rendered Short",
     },
   },
 ];

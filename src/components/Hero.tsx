@@ -8,31 +8,64 @@ import GithubIcon from "./icons/GithubIcon";
 export default function Hero() {
   return (
     <section id="top" className="relative min-h-[95vh] flex flex-col justify-between pt-36 pb-12 px-6 sm:px-10 max-w-[1400px] mx-auto overflow-hidden">
-      {/* Background Subtle Radial Glow */}
+      {/* Background Subtle Radial Glow & Cyber Vector Grid */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(60% 50% at 85% 0%, rgba(200,244,94,0.08), transparent 70%)",
+            "radial-gradient(60% 50% at 85% 0%, rgba(200,244,94,0.08), transparent 70%), radial-gradient(40% 40% at 15% 90%, rgba(6,182,212,0.05), transparent 60%)",
         }}
       />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-cyber-grid opacity-60" />
+
+      {/* Floating Ambient Vector Cyber Accents (Desktop) */}
+      <div aria-hidden="true" className="pointer-events-none absolute top-28 right-8 hidden lg:flex flex-col items-end gap-1.5 font-mono text-[10px] text-zinc-600 select-none">
+        <div className="flex items-center gap-2">
+          <span className="text-[#c8f45e]/60">+</span>
+          <span className="tracking-widest">SYS_NODE // 12.9716°N · 77.5946°E</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-zinc-500">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+          <span>UVCE_AI_DS_CORE // ACTIVE</span>
+        </div>
+      </div>
 
       {/* Main Hero Content */}
-      <div className="w-full">
-        {/* Availability / Status Line */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-8 flex items-center gap-3 font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-zinc-400"
-        >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8f45e] opacity-75" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#c8f45e]" />
-          </span>
-          <span>Open to internships &amp; projects</span>
-        </motion.p>
+      <div className="w-full relative">
+        {/* Futuristic Corner Vector Brackets */}
+        <div className="pointer-events-none absolute -top-8 -left-4 w-8 h-8 border-t-2 border-l-2 border-zinc-800/80 hidden sm:block" />
+        <div className="pointer-events-none absolute -top-8 -right-4 w-8 h-8 border-t-2 border-r-2 border-zinc-800/80 hidden sm:block" />
+
+        {/* Top Status & Live Telemetry Pill */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center gap-3 font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-zinc-400"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#c8f45e] opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#c8f45e]" />
+            </span>
+            <span>Open to internships &amp; projects</span>
+          </motion.div>
+
+          {/* Floating High-Tech Vector Pill Badges */}
+          <div className="hidden md:flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+            <span className="animate-float-vector px-2.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/20 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.15)] flex items-center gap-1.5">
+              <svg className="w-2.5 h-2.5 text-cyan-400 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" strokeDasharray="32" strokeDashoffset="12" />
+              </svg>
+              <span>21-LM CV · Vision AI</span>
+            </span>
+            <span className="animate-float-alt px-2.5 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/20 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.15)] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>FastAPI · Local LLMs</span>
+            </span>
+          </div>
+        </div>
 
         {/* Massive Bold Uppercase Name */}
         <motion.h1

@@ -6,6 +6,15 @@ import { motion } from "framer-motion";
 
 const REPOS = [
   {
+    name: "Hypotonic-farming-system",
+    title: "HydroMonitor AI",
+    description:
+      "Smart hydroponics monitoring prototype: sensor telemetry ingestion, plant vitality ML scoring, and automated abnormal condition alarms.",
+    language: "Python & ML",
+    langColor: "bg-emerald-400",
+    url: "https://github.com/123swastik123/Hypotonic-farming-system",
+  },
+  {
     name: "Government-work-assistant-ai",
     title: "NammaPath / CivicPath",
     description:
@@ -15,20 +24,29 @@ const REPOS = [
     url: "https://github.com/123swastik123/Government-work-assistant-ai",
   },
   {
-    name: "Hypotonic-farming-system",
-    title: "HydroMonitor AI",
+    name: "college_manager",
+    title: "Study Drive / College Manager",
     description:
-      "Smart hydroponics monitoring prototype: sensor telemetry ingestion, plant vitality ML scoring, and automated abnormal condition alarms.",
-    language: "Python",
-    langColor: "bg-emerald-400",
-    url: "https://github.com/123swastik123/Hypotonic-farming-system",
+      "Modern academic command center: automated multi-engine document ingestion, semantic search, GPA forecasting, and live timetable management.",
+    language: "Python & FastAPI",
+    langColor: "bg-purple-400",
+    url: "https://github.com/123swastik123/college_manager",
+  },
+  {
+    name: "Omnicomm",
+    title: "OmniComm Neural HUD",
+    description:
+      "Real-time dual-mode assistive communication engine with 21-landmark MediaPipe hand tracking, speech synthesis, and an animated cyber-glass HUD.",
+    language: "JavaScript & MediaPipe",
+    langColor: "bg-cyan-400",
+    url: "https://github.com/123swastik123/Omnicomm",
   },
   {
     name: "Autoclip",
     title: "AutoClip Video Automation",
     description:
-      "Automated pipeline turning long footage into vertical Shorts: face-following crops, AI speech transcription, and karaoke captions.",
-    language: "Python",
+      "Automated pipeline turning long footage into vertical Shorts: face-following crops, AI speech transcription, audio ducking, and karaoke captions.",
+    language: "Python & React",
     langColor: "bg-amber-400",
     url: "https://github.com/123swastik123/Autoclip",
   },
@@ -38,7 +56,7 @@ const REPOS = [
     description:
       "Explorations in prompt conditioning, LLM scaffolding, and autonomous developer assistance workflows.",
     language: "AI Pipelines",
-    langColor: "bg-purple-400",
+    langColor: "bg-pink-400",
     url: "https://github.com/123swastik123/buddy-claude",
   },
 ];
