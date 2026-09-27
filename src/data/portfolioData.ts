@@ -165,7 +165,7 @@ export const PROJECTS: Project[] = [
       "Vercel Serverless",
     ],
     githubUrl: "https://github.com/123swastik123/college_manager",
-    liveUrl: "https://college-manager.vercel.app/",
+    liveUrl: "https://collegemanager-navy.vercel.app",
     badgeText: "Live Academic OS",
     architectureDiagram: {
       nodes: [
@@ -214,7 +214,8 @@ export const PROJECTS: Project[] = [
       "Whisper",
       "JavaScript (ES6+)",
     ],
-    githubUrl: "https://github.com/123swastik123",
+    githubUrl: "https://github.com/123swastik123/Omnicomm",
+    liveUrl: "https://omnicomm-mocha.vercel.app",
     badgeText: "Vision & WebRTC",
     architectureDiagram: {
       nodes: [
